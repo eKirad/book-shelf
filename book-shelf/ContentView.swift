@@ -6,11 +6,11 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $tabSelection) {
             BookHome()
-                .tabItem { Label("Books", systemImage: "book") }
+                .tabItem { Label(Labels.books, systemImage: "book") }
                 .tag(MainTab.home)
             
             DashboardHome()
-                .tabItem { Label("Dashboard", systemImage: "star") }
+                .tabItem { Label(Labels.dashboard, systemImage: "star") }
                 .tag(MainTab.dashboard)
         }
     }
