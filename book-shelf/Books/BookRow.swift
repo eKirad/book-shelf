@@ -15,7 +15,7 @@ struct BookRow: View {
                 HStack(alignment: .top, spacing: 0) {
                     ForEach(books) { book in
                         NavigationLink() {
-                            BookDetail()
+                            BookDetail(book: book)
                         } label: {
                             BookItem(book: book)
                         }

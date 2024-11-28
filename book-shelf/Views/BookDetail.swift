@@ -1,12 +1,13 @@
 import SwiftUI
 
 struct BookDetail: View {
+    var book: Book
     
     var body: some View {
-        Text("Hello, book!")
+        Text(book.name)
     }
 }
 
 #Preview {
-    BookDetail()
+    BookDetail(book: ModelData().books[0])
 }
