@@ -3,7 +3,6 @@ import SwiftUI
 struct ContentView: View {
     @State private var tabSelection: MainTab = .home
     
-    
     var body: some View {
         TabView(selection: $tabSelection) {
             BookHome()
