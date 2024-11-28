@@ -12,7 +12,7 @@ struct BookHome: View {
                 .listRowInsets(EdgeInsets())
             }
         } detail: {
-            Text("Select a Landmark")
+            Text(Texts.selectBook)
         }
     }
 }
