@@ -1,22 +1,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var tabSelection: Tab = .home
+    @State private var tabSelection: MainTab = .home
     
-    enum Tab {
-        case home
-        case dashboard
-    }
     
     var body: some View {
         TabView(selection: $tabSelection) {
             BookHome()
                 .tabItem { Label("Books", systemImage: "book") }
-                .tag(Tab.home)
+                .tag(MainTab.home)
             
             DashboardHome()
                 .tabItem { Label("Dashboard", systemImage: "star") }
-                .tag(Tab.dashboard)
+                .tag(MainTab.dashboard)
         }
     }
 }
