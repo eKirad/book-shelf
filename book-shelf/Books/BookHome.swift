@@ -1,18 +1,22 @@
-//
-//  BookHome.swift
-//  book-shelf
-//
-//  Created by Evgeni Kiradzhiyski on 28.11.24.
-//
-
 import SwiftUI
 
 struct BookHome: View {
+    @Environment(ModelData.self) var modelData
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationSplitView() {
+            List {
+                ForEach(modelData.genres.keys.sorted(), id: \.self) { key in
+                    BookRow(genreName: key, books: modelData.genres[key]!)
+                }
+                .listRowInsets(EdgeInsets())
+            }
+        } detail: {
+            Text("Select a Landmark")
+        }
     }
 }
 
 #Preview {
-    BookHome()
+    BookHome().environment(ModelData())
 }
