@@ -7,8 +7,8 @@ struct Book: Identifiable {
     var genre: Genre
     
     enum Genre: String, CaseIterable, Codable {
-        case mystery = "mystery"
-        case thriller = "thriller"
-        case romance = "romance"
+        case mystery = "Mystery"
+        case thriller = "Thriller"
+        case romance = "Romance"
     }
 }
