@@ -1,2 +1,13 @@
 .DS_Store
 *.xcodeproj/xcuserdata/
+*.book-shelf/xcuserdata/
+
+# Xcode
+.DS_Store
+*.swp
+xcuserdata/
+DerivedData/
+
+# Build artifacts
+/build/
+*.xcodeproj/xcuserdata/
