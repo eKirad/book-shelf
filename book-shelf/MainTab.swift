@@ -1,6 +1,7 @@
 import Foundation
 
 enum MainTab {
-    case home
+    case myBooks
+    case search
     case dashboard
 }
