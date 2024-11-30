@@ -8,7 +8,9 @@ struct ContentView: View {
             BookHome()
                 .tabItem { Label(Labels.myBooks, systemImage: "book") }
                 .tag(MainTab.myBooks)
-            
+             FindBooksHome()
+                .tabItem { Label(Labels.findBooks, systemImage: "magnifyingglass") }
+                .tag(MainTab.search)
             DashboardHome()
                 .tabItem { Label(Labels.dashboard, systemImage: "star") }
                 .tag(MainTab.dashboard)
