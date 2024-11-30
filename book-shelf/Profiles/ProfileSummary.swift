@@ -29,9 +29,8 @@ struct ProfileSummary: View {
                 Text("\(Texts.firstName): \(profile.firstName)")
                 Text("\(Texts.lastName): \(profile.lastName)")
                 Text("\(Texts.email): \(profile.email)")
-                Text("\(Texts.notifications): \(profile.prefersNotifications ? "On": "Off" )")
+                Text("\(Texts.notifications): \(profile.prefersNotifications ? "\(Texts.notificationsOn)": "\(Texts.notificationsOff)")")
                 Divider()
-                
             }
         }
         .padding()
