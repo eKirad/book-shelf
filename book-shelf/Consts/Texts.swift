@@ -7,4 +7,5 @@ struct Texts {
     static let firstName = "First Name"
     static let lastName = "Last Name"
     static let email = "e-mail"
+    static let booksNavigationTitle = "Books"
 }
