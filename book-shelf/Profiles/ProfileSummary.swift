@@ -25,11 +25,35 @@ struct ProfileSummary: View {
                     }
                 }
                 .font(.headline)
+               
+                HStack {
+                    Image(systemName: "person")
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(.cyan)
+                    Text("\(Texts.firstName): \(profile.firstName)")
+                }
+               
+                HStack {
+                    Image(systemName: "person")
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(.cyan)
+                    Text("\(Texts.lastName): \(profile.lastName)")
+                }
                 
-                Text("\(Texts.firstName): \(profile.firstName)")
-                Text("\(Texts.lastName): \(profile.lastName)")
-                Text("\(Texts.email): \(profile.email)")
-                Text("\(Texts.notifications): \(profile.prefersNotifications ? "\(Texts.notificationsOn)": "\(Texts.notificationsOff)")")
+                 HStack {
+                    Image(systemName: "envelope")
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(.cyan)
+                     Text("\(profile.email)")
+                }
+               
+                 HStack {
+                    Image(systemName: "bell")
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(.cyan)
+                     Text("\(Texts.notifications): \(profile.prefersNotifications ? "\(Texts.notificationsOn)": "\(Texts.notificationsOff)")")
+                }
+               
                 Divider()
             }
         }
