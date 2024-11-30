@@ -10,6 +10,8 @@ struct ProfileSummary: View {
                 ProfileSummaryCard(profile: profile)
 
                 Divider()
+                
+                ProfileAchievements()
             }
         }
         .padding()

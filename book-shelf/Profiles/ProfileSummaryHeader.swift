@@ -15,7 +15,7 @@ struct ProfileSummaryHeader: View {
                 print("Edit button tapped")
             }) {
                 HStack {
-                    Text("Edit")
+                    Text(Texts.edit)
                         .foregroundColor(.cyan)
                     Image(systemName: "square.and.pencil")
                         .foregroundColor(.cyan)
