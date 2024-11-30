@@ -14,8 +14,12 @@ struct FindBooksHome: View {
     var body: some View {
         NavigationStack {
             VStack {
-                List(searchResults, id: \.self) { book in
-                        Text(book)
+                List {
+                    ForEach(books, id: \.self) { book in
+                        DisclosureGroup(book) {
+                            Text(book)
+                        }
+                    }
                 }
             }
             .searchable(text: $searchText)
