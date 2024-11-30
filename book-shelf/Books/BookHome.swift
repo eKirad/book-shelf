@@ -10,7 +10,7 @@ struct BookHome: View {
                 ForEach(modelData.genres.keys.sorted(), id: \.self) { key in
                     BookRow(genreName: key, books: modelData.genres[key]!)
                 }
-                .listRowInsets(EdgeInsets())
+             //.listRowInsets(EdgeInsets())
             }
             .navigationTitle("\(Texts.booksNavigationTitle)")
             .toolbar {
