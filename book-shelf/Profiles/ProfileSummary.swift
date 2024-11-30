@@ -7,6 +7,7 @@ struct ProfileSummary: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
                 ProfileSummaryHeader(userName: profile.username)
+                Divider()
                 ProfileSummaryCard(profile: profile)
 
                 Divider()
