@@ -1,18 +1,28 @@
-//
-//  ProfileSummary.swift
-//  book-shelf
-//
-//  Created by Evgeni Kiradzhiyski on 30.11.24.
-//
-
 import SwiftUI
 
 struct ProfileSummary: View {
+    var profile: Profile
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 10) {
+                Text(profile.username)
+                    .bold()
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                
+                Text("First name: \(profile.firstName)")
+                Text("Last name: \(profile.lastName)")
+                Text("Email: \(profile.email)")
+                Text("Notifications: \(profile.prefersNotifications ? "On": "Off" )")
+                
+                Divider()
+                
+            }
+        }
+        .padding()
     }
 }
 
 #Preview {
-    ProfileSummary()
+    ProfileSummary(profile: Profile.defaultProfile)
 }
