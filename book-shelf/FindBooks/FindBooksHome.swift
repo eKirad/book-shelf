@@ -1,8 +1,25 @@
 import SwiftUI
 
 struct FindBooksHome: View {
+    @State private var searchText = ""
+    
+    private let books = [
+        "First book", "Second book", "Third book"
+   ]
+    
+    private var searchResults: Array<String> {
+        searchText.isEmpty ? books : books.filter {$0.contains(searchText)}
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack {
+                List(searchResults, id: \.self) { book in
+                        Text(book)
+                }
+            }
+            .searchable(text: $searchText)
+        }
     }
 }
 
