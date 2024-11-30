@@ -12,7 +12,7 @@ struct BookRow: View {
                 .padding(.top, 5)
             
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(alignment: .top, spacing: 0) {
+                VStack(alignment: .leading, spacing: 5) {
                     ForEach(books) { book in
                         NavigationLink() {
                             BookDetail(book: book)

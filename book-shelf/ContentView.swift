@@ -1,14 +1,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var tabSelection: MainTab = .home
+    @State private var tabSelection: MainTab = .myBooks
     
     var body: some View {
         TabView(selection: $tabSelection) {
             BookHome()
-                .tabItem { Label(Labels.books, systemImage: "book") }
-                .tag(MainTab.home)
-            
+                .tabItem { Label(Labels.myBooks, systemImage: "book") }
+                .tag(MainTab.myBooks)
+             FindBooksHome()
+                .tabItem { Label(Labels.findBooks, systemImage: "magnifyingglass") }
+                .tag(MainTab.search)
             DashboardHome()
                 .tabItem { Label(Labels.dashboard, systemImage: "star") }
                 .tag(MainTab.dashboard)
