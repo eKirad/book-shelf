@@ -8,4 +8,6 @@ struct Texts {
     static let lastName = "Last Name"
     static let email = "e-mail"
     static let booksNavigationTitle = "My Books"
+    static let notificationsOn = "On"
+    static let notificationsOff = "Off"
 }
