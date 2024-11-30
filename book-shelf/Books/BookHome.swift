@@ -2,6 +2,7 @@ import SwiftUI
 
 struct BookHome: View {
     @Environment(ModelData.self) var modelData
+    @State private var isShowingProfile = false
     
     var body: some View {
         NavigationSplitView() {
@@ -10,6 +11,18 @@ struct BookHome: View {
                     BookRow(genreName: key, books: modelData.genres[key]!)
                 }
                 .listRowInsets(EdgeInsets())
+            }
+            .navigationTitle("Books")
+            .toolbar {
+                Button {
+                    isShowingProfile.toggle()
+                } label: {
+                    Label("User profile", systemImage: "person.crop.circle")
+                }
+            }
+            .sheet(isPresented: $isShowingProfile) {
+                ProfileHost()
+                    .environment(modelData)
             }
         } detail: {
             Text(Texts.selectBook)
