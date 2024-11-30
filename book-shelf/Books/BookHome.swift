@@ -12,12 +12,12 @@ struct BookHome: View {
                 }
                 .listRowInsets(EdgeInsets())
             }
-            .navigationTitle("Books")
+            .navigationTitle("\(Texts.booksNavigationTitle)")
             .toolbar {
                 Button {
                     isShowingProfile.toggle()
                 } label: {
-                    Label("User profile", systemImage: "person.crop.circle")
+                    Label("\(Labels.userProfile)", systemImage: "person.crop.circle")
                 }
             }
             .sheet(isPresented: $isShowingProfile) {
