@@ -9,12 +9,10 @@ struct ProfileSummary: View {
                 Text(profile.username)
                     .bold()
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                
-                Text("First name: \(profile.firstName)")
-                Text("Last name: \(profile.lastName)")
-                Text("Email: \(profile.email)")
-                Text("Notifications: \(profile.prefersNotifications ? "On": "Off" )")
-                
+                Text("\(Texts.firstName): \(profile.firstName)")
+                Text("\(Texts.lastName): \(profile.lastName)")
+                Text("\(Texts.email): \(profile.email)")
+                Text("\(Texts.notifications): \(profile.prefersNotifications ? "On": "Off" )")
                 Divider()
                 
             }
