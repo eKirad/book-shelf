@@ -9,9 +9,7 @@ struct ProfileSummary: View {
                 ProfileSummaryHeader(userName: profile.username)
                 Divider()
                 ProfileSummaryCard(profile: profile)
-
                 Divider()
-                
                 ProfileAchievements()
             }
         }
