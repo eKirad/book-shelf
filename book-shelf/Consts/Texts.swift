@@ -11,4 +11,5 @@ struct Texts {
     static let notificationsOn = "On"
     static let notificationsOff = "Off"
     static let edit = "Edit"
+    static let fullName = "Name"
 }
