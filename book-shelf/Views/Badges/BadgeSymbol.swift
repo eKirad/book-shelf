@@ -1,41 +1,41 @@
 import SwiftUI
 
 struct BadgeSymbol: View {
-    static let tickColor = Color.green
-    static let circleColor = Color.white
+    static let symbolColor = Color(red: 79.0 / 255, green: 79.0 / 255, blue: 191.0 / 255)
 
+    
     var body: some View {
-        ZStack {
-            // Background circle with a border for the stamp
-            Circle()
-                .fill(Self.circleColor)
-                .frame(width: 100, height: 100)
-                .overlay(
-                    Circle()
-                        .strokeBorder(Color.green, lineWidth: 4)
-                )
-                .shadow(radius: 4, x: 2, y: 2) // Add shadow for a stamp effect
-
-            // Tick mark with a rougher stroke for a stamped appearance
+        GeometryReader { geometry in
             Path { path in
-                let width: CGFloat = 100
-                let height: CGFloat = 100
-                let centerX = width / 2
-                let centerY = height / 2
+                let width = min(geometry.size.width, geometry.size.height)
+                let height = width * 0.75
+                let spacing = width * 0.030
+                let middle = width * 0.5
+                let topWidth = width * 0.226
+                let topHeight = height * 0.488
 
-                // Start point of the tick
-                path.move(to: CGPoint(x: centerX - 20, y: centerY))
-                // First line of the tick
-                path.addLine(to: CGPoint(x: centerX, y: centerY + 20))
-                // Second line of the tick
-                path.addLine(to: CGPoint(x: centerX + 20, y: centerY - 20))
+
+                path.addLines([
+                    CGPoint(x: middle, y: spacing),
+                    CGPoint(x: middle - topWidth, y: topHeight - spacing),
+                    CGPoint(x: middle, y: topHeight / 2 + spacing),
+                    CGPoint(x: middle + topWidth, y: topHeight - spacing),
+                    CGPoint(x: middle, y: spacing)
+                ])
+                
+                path.move(to: CGPoint(x: middle, y: topHeight / 2 + spacing * 3))
+                path.addLines([
+                    CGPoint(x: middle - topWidth, y: topHeight + spacing),
+                    CGPoint(x: spacing, y: height - spacing),
+                    CGPoint(x: width - spacing, y: height - spacing),
+                    CGPoint(x: middle + topWidth, y: topHeight + spacing),
+                    CGPoint(x: middle, y: topHeight / 2 + spacing * 3)
+                ])
             }
-            .stroke(Self.tickColor, style: StrokeStyle(lineWidth: 6, lineCap: .round, lineJoin: .round))
-            .frame(width: 100, height: 100) // Ensure tick matches the size of the circle
+            .fill(Self.symbolColor)
         }
     }
 }
-
 
 #Preview {
     BadgeSymbol()

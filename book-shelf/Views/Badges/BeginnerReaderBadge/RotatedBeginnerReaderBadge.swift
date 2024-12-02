@@ -4,7 +4,7 @@ struct RotatedBadgeSymbol: View {
     let angle: Angle
     
     var body: some View {
-        BadgeSymbol()
+        BadgeSymbol(greenColor: 191.0, blueColor: 191.0)
             .padding(-60)
             .rotationEffect(angle, anchor: .bottom)
     }
