@@ -3,7 +3,7 @@ import SwiftUI
 struct BeginnerReaderBadge: View {
     var badgeSymbols: some View {
         ForEach(0..<8){ index in
-            RotatedBeginnerReaderBadge(angle: .degrees(Double(index) / Double(8)) * 360.0)
+            RotatedBadge(angle: .degrees(Double(index) / Double(8)) * 360.0, greenColor: 191.0, blueColor: 191.0)
                 .opacity(0.5)
         }
         .opacity(0.5)
