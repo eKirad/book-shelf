@@ -1,18 +1,21 @@
-//
-//  ExpertBadge.swift
-//  book-shelf
-//
-//  Created by Evgeni Kiradzhiyski on 2.12.24.
-//
-
 import SwiftUI
 
 struct ExpertBadge: View {
+    var name: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .center) {
+           ExpertReaderBadge()
+                .frame(width: 300, height: 300)
+                .scaleEffect(1.0/3.0)
+                .frame(width: 100, height: 100)
+            Text(name)
+                .font(.caption)
+                .accessibilityLabel("Badge for \(name).")
+        }
     }
 }
 
 #Preview {
-    ExpertBadge()
+    ExpertBadge(name: "Preview Testing")
 }

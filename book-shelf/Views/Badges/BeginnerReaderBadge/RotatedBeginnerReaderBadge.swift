@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct RotatedBadgeSymbol: View {
+struct RotatedBeginnerReaderBadge: View {
     let angle: Angle
     
     var body: some View {
@@ -11,5 +11,5 @@ struct RotatedBadgeSymbol: View {
 }
 
 #Preview {
-    RotatedBadgeSymbol(angle: Angle(degrees: 5))
+    RotatedBeginnerReaderBadge(angle: Angle(degrees: 5))
 }

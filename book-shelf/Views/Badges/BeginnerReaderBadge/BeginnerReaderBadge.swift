@@ -1,9 +1,9 @@
 import SwiftUI
 
-struct Badge: View {
+struct BeginnerReaderBadge: View {
     var badgeSymbols: some View {
         ForEach(0..<8){ index in
-            RotatedBadgeSymbol(angle: .degrees(Double(index) / Double(8)) * 360.0)
+            RotatedBeginnerReaderBadge(angle: .degrees(Double(index) / Double(8)) * 360.0)
                 .opacity(0.5)
         }
         .opacity(0.5)
@@ -24,5 +24,5 @@ struct Badge: View {
 }
 
 #Preview {
-    Badge()
+    BeginnerReaderBadge()
 }

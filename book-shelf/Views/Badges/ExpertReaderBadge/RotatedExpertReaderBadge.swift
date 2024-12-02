@@ -1,18 +1,15 @@
-//
-//  RotatedExpertReaderBadge.swift
-//  book-shelf
-//
-//  Created by Evgeni Kiradzhiyski on 2.12.24.
-//
-
 import SwiftUI
 
 struct RotatedExpertReaderBadge: View {
+    let angle: Angle
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        BadgeSymbol(greenColor: 79.0, blueColor: 191.0)
+            .padding(-60)
+            .rotationEffect(angle, anchor: .bottom)
     }
 }
 
 #Preview {
-    RotatedExpertReaderBadge()
+    RotatedExpertReaderBadge(angle: Angle(degrees: 5))
 }

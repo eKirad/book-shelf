@@ -1,8 +1,12 @@
 import SwiftUI
 
 struct BadgeSymbol: View {
-    static let symbolColor = Color(red: 79.0 / 255, green: 79.0 / 255, blue: 191.0 / 255)
-
+    var greenColor: Double
+    var blueColor: Double
+    
+    var symbolColor: Color {
+        Color(red: 79.0 / 255, green: greenColor / 255, blue: blueColor / 255)
+    }
     
     var body: some View {
         GeometryReader { geometry in
@@ -32,11 +36,11 @@ struct BadgeSymbol: View {
                     CGPoint(x: middle, y: topHeight / 2 + spacing * 3)
                 ])
             }
-            .fill(Self.symbolColor)
+            .fill(symbolColor)
         }
     }
 }
 
 #Preview {
-    BadgeSymbol()
+    BadgeSymbol(greenColor: 191.0, blueColor: 191.9)
 }
