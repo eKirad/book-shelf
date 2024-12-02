@@ -5,7 +5,7 @@ struct BeginnerBadge: View {
     
     var body: some View {
         VStack(alignment: .center) {
-            BeginnerReaderBadge()
+            Badge(greenColor: 191.0, blueColor: 191.0)
                 .frame(width: 300, height: 300)
                 .scaleEffect(1.0/3.0)
                 .frame(width: 100, height: 100)
