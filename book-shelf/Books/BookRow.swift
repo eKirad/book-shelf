@@ -43,6 +43,7 @@ struct BookRow: View {
                             Text("\(Texts.noFavourites)")
                                 .font(.subheadline)
                                 .foregroundColor(.gray)
+                            
                         }
                         .padding(.horizontal, 120)
                     } else {

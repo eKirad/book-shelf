@@ -11,10 +11,15 @@ struct BookItem: View {
                 .scaledToFit()
                 .cornerRadius(5)
                 .shadow(radius: 7)
-            Text(book.name)
-                .italic()
-                .foregroundStyle(.primary)
-                .font(.caption)
+            HStack {
+                Text(book.name)
+                    .italic()
+                    .foregroundStyle(.primary)
+                    .font(.caption)
+                Label("\(Labels.toggleButton)", systemImage: book.isFavourite ? "star.fill" : "star")
+                    .labelStyle(.iconOnly)
+                    .foregroundStyle(book.isFavourite ? .yellow : .gray)
+            }
         }
         .padding(.horizontal, 10)
     }
