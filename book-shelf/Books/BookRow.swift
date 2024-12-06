@@ -3,13 +3,24 @@ import SwiftUI
 struct BookRow: View {
     var genreName: String
     var books: Array<Book>
+    @State private var showFavouritesOnly = false
     
     var body: some View {
         VStack (alignment: .leading) {
-            Text(genreName)
-                .font(.headline)
-                .padding(.leading, 15)
-                .padding(.top, 5)
+            HStack {
+                Text(genreName)
+                    .font(.headline)
+                Spacer()
+                HStack {
+                    Text("Favourites")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                    Toggle("", isOn: $showFavouritesOnly)
+                        .labelsHidden()
+                }
+            }
+            .padding(.leading, 15)
+            .padding(.top, 5)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 5) {
