@@ -34,6 +34,8 @@
 		D2D8DDEA2CFB6635004A6E0F /* ProfileSummaryHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8DDE92CFB6635004A6E0F /* ProfileSummaryHeader.swift */; };
 		D2D8DDEC2CFB6718004A6E0F /* ProfileSummaryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8DDEB2CFB6717004A6E0F /* ProfileSummaryCard.swift */; };
 		D2D8DDEE2CFB67F3004A6E0F /* ProfileAchievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8DDED2CFB67F3004A6E0F /* ProfileAchievements.swift */; };
+		D2DC3E5B2D03A58600D91299 /* TagModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DC3E5A2D03A58600D91299 /* TagModifier.swift */; };
+		D2DC3E622D03A7E900D91299 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DC3E612D03A7E900D91299 /* Utils.swift */; };
 		D2F4F64C2CF8B227008749AD /* BookShelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F4F64B2CF8B227008749AD /* BookShelf.swift */; };
 		D2F4F64E2CF8B227008749AD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F4F64D2CF8B227008749AD /* ContentView.swift */; };
 		D2F4F6502CF8B228008749AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2F4F64F2CF8B228008749AD /* Assets.xcassets */; };
@@ -68,6 +70,8 @@
 		D2D8DDE92CFB6635004A6E0F /* ProfileSummaryHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummaryHeader.swift; sourceTree = "<group>"; };
 		D2D8DDEB2CFB6717004A6E0F /* ProfileSummaryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummaryCard.swift; sourceTree = "<group>"; };
 		D2D8DDED2CFB67F3004A6E0F /* ProfileAchievements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAchievements.swift; sourceTree = "<group>"; };
+		D2DC3E5A2D03A58600D91299 /* TagModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagModifier.swift; sourceTree = "<group>"; };
+		D2DC3E612D03A7E900D91299 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		D2F4F6482CF8B227008749AD /* book-shelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "book-shelf.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F4F64B2CF8B227008749AD /* BookShelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShelf.swift; sourceTree = "<group>"; };
 		D2F4F64D2CF8B227008749AD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 				D27066E82CF8EDE400133396 /* BookDetail.swift */,
 				D21B2EED2D03432A00341BBB /* CircleImage.swift */,
 				D21B2EEF2D03514600341BBB /* FavouritesButton.swift */,
+				D2DC3E5A2D03A58600D91299 /* TagModifier.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,6 +190,14 @@
 			path = Badges;
 			sourceTree = "<group>";
 		};
+		D2DC3E602D03A7DE00D91299 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D2DC3E612D03A7E900D91299 /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		D2F4F63F2CF8B227008749AD = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +217,7 @@
 		D2F4F64A2CF8B227008749AD /* book-shelf */ = {
 			isa = PBXGroup;
 			children = (
+				D2DC3E602D03A7DE00D91299 /* Utils */,
 				D2D8DDD92CFB33C8004A6E0F /* FindBooks */,
 				D2D8DDD22CFB27C5004A6E0F /* Profiles */,
 				D27066EC2CF8F75400133396 /* Consts */,
@@ -309,6 +323,7 @@
 				D21B2EF02D03514600341BBB /* FavouritesButton.swift in Sources */,
 				D2D8DDEE2CFB67F3004A6E0F /* ProfileAchievements.swift in Sources */,
 				D2D8DDE82CFB63D3004A6E0F /* BookGenre.swift in Sources */,
+				D2DC3E5B2D03A58600D91299 /* TagModifier.swift in Sources */,
 				D27066E42CF8ECAF00133396 /* Book.swift in Sources */,
 				D2D8DDD42CFB27DB004A6E0F /* ProfileHost.swift in Sources */,
 				D27066EB2CF8F5ED00133396 /* MainTab.swift in Sources */,
@@ -318,6 +333,7 @@
 				D21618FB2CFDF408006042F8 /* BeginnerBadge.swift in Sources */,
 				D21B2EEE2D03432A00341BBB /* CircleImage.swift in Sources */,
 				D27066F22CF8FF0700133396 /* BookItem.swift in Sources */,
+				D2DC3E622D03A7E900D91299 /* Utils.swift in Sources */,
 				D2D8DDE02CFB4880004A6E0F /* HexagonParameters.swift in Sources */,
 				D2D8DDEA2CFB6635004A6E0F /* ProfileSummaryHeader.swift in Sources */,
 				D27066EE2CF8F76400133396 /* Labels.swift in Sources */,
