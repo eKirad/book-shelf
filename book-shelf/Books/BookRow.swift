@@ -30,11 +30,15 @@ struct BookRow: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 5) {
-                    ForEach(filteredBooks) { book in
-                        NavigationLink() {
-                            BookDetail(book: book)
-                        } label: {
-                            BookItem(book: book)
+                    if (filteredBooks.isEmpty && showFavouritesOnly == true) {
+                        Text("nothing")
+                    } else {
+                        ForEach(filteredBooks) { book in
+                            NavigationLink() {
+                                BookDetail(book: book)
+                            } label: {
+                                BookItem(book: book)
+                            }
                         }
                     }
                 }
