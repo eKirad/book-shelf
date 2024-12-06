@@ -10,6 +10,7 @@ struct BookDetail: View {
     
     var body: some View {
         @Bindable var modelData = modelData
+        let tagBackgroundColor = mapGenreToColor(for: book.genre)
         
         VStack {
             CircleImage(image: book.coverImage)
@@ -25,9 +26,11 @@ struct BookDetail: View {
                 }
                 
                 HStack {
+                    Text(Texts.genres)
                     Text(book.genre.rawValue)
+                        .tagStyle(backgroundColor: tagBackgroundColor)
                     Spacer()
-                    Text(book.authorName)
+                    Text("by \(book.authorName)")
                 }
                 .font(.subheadline)
                 .foregroundStyle(.secondary)

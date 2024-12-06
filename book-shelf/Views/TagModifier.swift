@@ -1,18 +1,20 @@
-//
-//  TagModified.swift
-//  book-shelf
-//
-//  Created by Evgeni Kiradzhiyski on 6.12.24.
-//
-
 import SwiftUI
 
-struct TagModified: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct TagModifier: ViewModifier {
+    var backgroundColor: Color
+    
+    func body(content: Content) -> some View {
+        content
+            .padding(8)
+            .background(backgroundColor)
+            .foregroundColor(.white)
+            .font(.caption)
+            .cornerRadius(10)
     }
 }
 
-#Preview {
-    TagModified()
+extension View {
+    func tagStyle(backgroundColor: Color) -> some View {
+        self.modifier(TagModifier(backgroundColor: backgroundColor))
+    }
 }
