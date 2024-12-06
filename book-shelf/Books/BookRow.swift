@@ -34,7 +34,7 @@ struct BookRow: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 5) {
-                    if (filteredBooks.isEmpty && showFavouritesOnly == true) {
+                    if (filteredBooks.isEmpty && showFavouritesOnly) {
                         VStack {
                             Image(systemName: "exclamationmark.triangle.fill")
                                 .font(.system(size: 50))
