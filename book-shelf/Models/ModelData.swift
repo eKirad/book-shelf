@@ -4,7 +4,7 @@ import Foundation
 class ModelData {
     var books: Array<Book> = [
         Book (
-            id: 12,
+            id: 1,
             name: "Test",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", 
             genre: BookGenre.mystery,
