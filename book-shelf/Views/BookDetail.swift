@@ -11,6 +11,7 @@ struct BookDetail: View {
            
             VStack (alignment: .leading) {
                 Text(book.name)
+                    .italic()
                     .font(.title)
                 
                 HStack {
@@ -24,6 +25,7 @@ struct BookDetail: View {
                 Divider()
                
                 Text("About \(book.name)")
+                    .italic()
                     .font(.title2)
                 Text(book.description)
             }
