@@ -1,3 +1,4 @@
+import SwiftUI
 import Foundation
 
 struct Book: Identifiable {
@@ -5,4 +6,8 @@ struct Book: Identifiable {
     var name: String
     var description: String
     var genre: BookGenre
+    var coverImageName: String
+    var coverImage: Image {
+        Image(coverImageName)
+    }
 }
