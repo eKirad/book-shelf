@@ -18,7 +18,7 @@ struct BookRow: View {
                     .font(.headline)
                 Spacer()
                 HStack {
-                    Text("Favourites only")
+                    Text("\(Texts.favouritesOnly)")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                     Toggle("", isOn: $showFavouritesOnly)

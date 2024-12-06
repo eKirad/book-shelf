@@ -13,4 +13,5 @@ struct Texts {
     static let edit = "Edit"
     static let fullName = "Name"
     static let about = "About"
+    static let favouritesOnly = "Favourites only"
 }
