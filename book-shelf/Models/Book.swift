@@ -11,4 +11,5 @@ struct Book: Identifiable {
         Image(coverImageName)
     }
     var authorName: String
+    var isFavourite: Bool
 }
