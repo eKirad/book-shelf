@@ -39,7 +39,7 @@ struct BookRow: View {
                             Image(systemName: "exclamationmark.triangle.fill")
                                 .font(.system(size: 50))
                                 .foregroundColor(.gray)
-                            Text("No results found")
+                            Text("\(Texts.noFavourites)")
                                 .font(.subheadline)
                                 .foregroundColor(.gray)
                         }
