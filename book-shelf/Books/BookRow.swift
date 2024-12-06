@@ -5,6 +5,12 @@ struct BookRow: View {
     var books: Array<Book>
     @State private var showFavouritesOnly = false
     
+    var filteredBooks: Array<Book> {
+       books.filter { book in
+            (!showFavouritesOnly || book.isFavourite)
+        }
+    }
+    
     var body: some View {
         VStack (alignment: .leading) {
             HStack {
@@ -12,7 +18,7 @@ struct BookRow: View {
                     .font(.headline)
                 Spacer()
                 HStack {
-                    Text("Favourites")
+                    Text("Favourites only")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                     Toggle("", isOn: $showFavouritesOnly)
@@ -24,7 +30,7 @@ struct BookRow: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 5) {
-                    ForEach(books) { book in
+                    ForEach(filteredBooks) { book in
                         NavigationLink() {
                             BookDetail(book: book)
                         } label: {
