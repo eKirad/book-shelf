@@ -10,7 +10,9 @@ struct BookItem: View {
                 .resizable()
                 .scaledToFit()
                 .cornerRadius(5)
+                .shadow(radius: 7)
             Text(book.name)
+                .italic()
                 .foregroundStyle(.primary)
                 .font(.caption)
         }
