@@ -14,9 +14,10 @@ struct BookItem: View {
             HStack {
                 Text(book.name)
                     .italic()
-                    .foregroundStyle(.primary)
                     .foregroundColor(.black)
-                    .font(.caption)
+                Text("[\(book.authorName)]")
+                    .foregroundColor(.black)
+                    .bold()
                 Label("\(Labels.toggleButton)", systemImage: book.isFavourite ? "star.fill" : "star")
                     .labelStyle(.iconOnly)
                     .foregroundStyle(book.isFavourite ? .yellow : .gray)
