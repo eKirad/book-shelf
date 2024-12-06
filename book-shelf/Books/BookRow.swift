@@ -6,7 +6,11 @@ struct BookRow: View {
     @State private var showFavouritesOnly = false
     
     var filteredBooks: Array<Book> {
-       books.filter { book in
+        if (!showFavouritesOnly) {
+            return books
+        }
+        
+       return books.filter { book in
             (!showFavouritesOnly || book.isFavourite)
         }
     }
