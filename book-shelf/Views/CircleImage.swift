@@ -1,18 +1,19 @@
-//
-//  CircleImage.swift
-//  book-shelf
-//
-//  Created by Evgeni Kiradzhiyski on 6.12.24.
-//
-
 import SwiftUI
 
 struct CircleImage: View {
+    var image: Image
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        image
+            .resizable()
+            .clipShape(Circle())
+            .overlay {
+                Circle().stroke(.white, lineWidth: 4)
+            }
+            .shadow(radius: 7)
     }
 }
 
 #Preview {
-    CircleImage()
+    CircleImage(image: Image("mystery-genre-cover"))
 }
