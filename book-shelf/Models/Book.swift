@@ -10,4 +10,5 @@ struct Book: Identifiable {
     var coverImage: Image {
         Image(coverImageName)
     }
+    var authorName: String
 }
