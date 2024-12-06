@@ -5,14 +5,19 @@ struct BookItem: View {
     
     var body: some View {
         VStack (alignment: .leading) {
+            book.coverImage
+                .renderingMode(.original)
+                .resizable()
+                .scaledToFit()
+                .cornerRadius(5)
             Text(book.name)
                 .foregroundStyle(.primary)
                 .font(.caption)
         }
-        .padding(.leading, 15)
+        .padding(.horizontal, 10)
     }
 }
 
 #Preview {
-    BookItem(book: ModelData().books[0])
+    BookItem(book: ModelData().books[1])
 }

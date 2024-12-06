@@ -12,7 +12,7 @@ struct BookRow: View {
                 .padding(.top, 5)
             
             ScrollView(.horizontal, showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 5) {
+                HStack(alignment: .top, spacing: 5) {
                     ForEach(books) { book in
                         NavigationLink() {
                             BookDetail(book: book)
@@ -31,6 +31,6 @@ struct BookRow: View {
     let books = ModelData().books
     return BookRow(
         genreName: books[0].genre.rawValue,
-        books: Array(books.prefix(3))
+        books: Array(books.prefix(4))
     )
 }
