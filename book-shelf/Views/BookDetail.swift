@@ -23,11 +23,17 @@ struct BookDetail: View {
                 .foregroundStyle(.secondary)
                 
                 Divider()
-               
-                Text("About \(book.name)")
-                    .italic()
-                    .font(.title2)
+              
+                HStack {
+                    Text("\(Texts.about)")
+                        .font(.title2)
+                    Text("\(book.name)")
+                        .italic()
+                        .font(.title2)
+                }
+                
                 Text(book.description)
+                
             }
             .padding()
         }
