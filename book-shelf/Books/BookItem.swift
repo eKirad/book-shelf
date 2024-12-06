@@ -15,6 +15,7 @@ struct BookItem: View {
                 Text(book.name)
                     .italic()
                     .foregroundStyle(.primary)
+                    .foregroundColor(.black)
                     .font(.caption)
                 Label("\(Labels.toggleButton)", systemImage: book.isFavourite ? "star.fill" : "star")
                     .labelStyle(.iconOnly)
