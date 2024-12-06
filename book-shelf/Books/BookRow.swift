@@ -44,6 +44,7 @@ struct BookRow: View {
                                 .font(.subheadline)
                                 .foregroundColor(.gray)
                         }
+                        .padding(.horizontal, 120)
                     } else {
                         ForEach(filteredBooks) { book in
                             NavigationLink() {
