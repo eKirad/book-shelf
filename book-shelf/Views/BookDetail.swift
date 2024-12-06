@@ -7,7 +7,7 @@ struct BookDetail: View {
         VStack {
             CircleImage(image: book.coverImage)
                 .offset(y: -130)
-                .padding(.bottom, -130)
+                .padding(.bottom, -150)
            
             VStack (alignment: .leading) {
                 Text(book.name)
@@ -29,6 +29,7 @@ struct BookDetail: View {
             }
             .padding()
         }
+        .padding()
         .navigationTitle(book.name)
         .navigationBarTitleDisplayMode(.inline)
     }
