@@ -4,7 +4,7 @@ struct BookDetail: View {
     var book: Book
     
     var body: some View {
-        VStack (alignment: .leading) {
+        VStack {
             CircleImage(image: book.coverImage)
                 .offset(y: -130)
                 .padding(.bottom, -130)
@@ -29,9 +29,11 @@ struct BookDetail: View {
             }
             .padding()
         }
+        .navigationTitle(book.name)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 #Preview {
-    BookDetail(book: ModelData().books[0])
+    BookDetail(book: ModelData().books[1])
 }
