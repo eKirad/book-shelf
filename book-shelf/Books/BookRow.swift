@@ -35,7 +35,14 @@ struct BookRow: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 5) {
                     if (filteredBooks.isEmpty && showFavouritesOnly == true) {
-                        Text("nothing")
+                        VStack {
+                            Image(systemName: "exclamationmark.triangle.fill")
+                                .font(.system(size: 50))
+                                .foregroundColor(.gray)
+                            Text("No results found")
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                        }
                     } else {
                         ForEach(filteredBooks) { book in
                             NavigationLink() {
