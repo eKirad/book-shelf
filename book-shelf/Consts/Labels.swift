@@ -5,4 +5,5 @@ struct Labels {
     static let dashboard = "Dashboard"
     static let userProfile = "User Profile"
     static let findBooks = "Find books"
+    static let toggleButton = "Toggle Favourites"
 }
