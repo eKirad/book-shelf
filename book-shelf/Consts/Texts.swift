@@ -15,4 +15,5 @@ struct Texts {
     static let about = "About"
     static let favouritesOnly = "Favourites only"
     static let noFavourites = "No Favourites"
+    static let genres = "Genres:"
 }
