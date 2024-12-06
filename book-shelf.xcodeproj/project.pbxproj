@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D21618FB2CFDF408006042F8 /* BeginnerBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21618FA2CFDF408006042F8 /* BeginnerBadge.swift */; };
 		D21619052CFDFD1F006042F8 /* ExpertBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21619042CFDFD1F006042F8 /* ExpertBadge.swift */; };
+		D21B2EEE2D03432A00341BBB /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21B2EED2D03432A00341BBB /* CircleImage.swift */; };
+		D21B2EF02D03514600341BBB /* FavouritesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21B2EEF2D03514600341BBB /* FavouritesButton.swift */; };
 		D225C3A12CFE26D100DA4FE8 /* RotatedBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D225C3A02CFE26D100DA4FE8 /* RotatedBadge.swift */; };
 		D27066DC2CF8E0E600133396 /* BookHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27066DB2CF8E0E600133396 /* BookHome.swift */; };
 		D27066DF2CF8E1EA00133396 /* DashboardHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27066DE2CF8E1EA00133396 /* DashboardHome.swift */; };
@@ -41,6 +43,8 @@
 /* Begin PBXFileReference section */
 		D21618FA2CFDF408006042F8 /* BeginnerBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerBadge.swift; sourceTree = "<group>"; };
 		D21619042CFDFD1F006042F8 /* ExpertBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpertBadge.swift; sourceTree = "<group>"; };
+		D21B2EED2D03432A00341BBB /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		D21B2EEF2D03514600341BBB /* FavouritesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesButton.swift; sourceTree = "<group>"; };
 		D225C3A02CFE26D100DA4FE8 /* RotatedBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatedBadge.swift; sourceTree = "<group>"; };
 		D27066DB2CF8E0E600133396 /* BookHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookHome.swift; sourceTree = "<group>"; };
 		D27066DE2CF8E1EA00133396 /* DashboardHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardHome.swift; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 			children = (
 				D2D8DDDC2CFB4824004A6E0F /* Badges */,
 				D27066E82CF8EDE400133396 /* BookDetail.swift */,
+				D21B2EED2D03432A00341BBB /* CircleImage.swift */,
+				D21B2EEF2D03514600341BBB /* FavouritesButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -300,6 +306,7 @@
 				D225C3A12CFE26D100DA4FE8 /* RotatedBadge.swift in Sources */,
 				D27066F02CF8FE9C00133396 /* Texts.swift in Sources */,
 				D27066E12CF8E2D400133396 /* BookRow.swift in Sources */,
+				D21B2EF02D03514600341BBB /* FavouritesButton.swift in Sources */,
 				D2D8DDEE2CFB67F3004A6E0F /* ProfileAchievements.swift in Sources */,
 				D2D8DDE82CFB63D3004A6E0F /* BookGenre.swift in Sources */,
 				D27066E42CF8ECAF00133396 /* Book.swift in Sources */,
@@ -309,6 +316,7 @@
 				D2F4F64E2CF8B227008749AD /* ContentView.swift in Sources */,
 				D2D8DDDB2CFB33E9004A6E0F /* FindBooksHome.swift in Sources */,
 				D21618FB2CFDF408006042F8 /* BeginnerBadge.swift in Sources */,
+				D21B2EEE2D03432A00341BBB /* CircleImage.swift in Sources */,
 				D27066F22CF8FF0700133396 /* BookItem.swift in Sources */,
 				D2D8DDE02CFB4880004A6E0F /* HexagonParameters.swift in Sources */,
 				D2D8DDEA2CFB6635004A6E0F /* ProfileSummaryHeader.swift in Sources */,
