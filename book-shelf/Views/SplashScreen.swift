@@ -3,7 +3,6 @@ import SwiftUI
 struct SplashScreen: View {
    @State private var isGuestUsage = false
     
-    
     var body: some View {
         if (isGuestUsage) {
             ContentView()
