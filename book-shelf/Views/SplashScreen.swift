@@ -20,7 +20,7 @@ struct SplashScreen: View {
                                 .cornerRadius(16)
                         }
                         
-                        NavigationLink(destination: Login()) {
+                        NavigationLink(destination: Signup()) {
                             Text(Texts.signUp)
                                 .frame(width: 200, alignment: .center)
                                 .bold()
