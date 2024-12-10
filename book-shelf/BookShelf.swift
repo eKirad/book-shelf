@@ -6,7 +6,7 @@ struct book_shelfApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashScreen()
                 .environment(modelData)
         }
     }

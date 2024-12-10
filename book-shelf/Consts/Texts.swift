@@ -16,4 +16,13 @@ struct Texts {
     static let favouritesOnly = "Favourites only"
     static let noFavourites = "No Favourites"
     static let genres = "Genres:"
+    static let login = "Login"
+    static let signUp = "Sign-Up"
+    static let useAsGuest = "Use as a Guest"
+    static let loginCredentials = "Login Credentials"
+    static let username = "Username"
+    static let password = "Password"
+    static let repeatPassword = "Repeat password"
+    static let rememberMe = "Remember me"
+    static let userData = "User data"
 }
