@@ -6,6 +6,10 @@ struct Login: View {
     @State private var shouldRememberUser: Bool = false
     @State private var isShowingAlert: Bool = false
     
+    private func handleLogin() {
+        isShowingAlert = true
+    }
+    
     var body: some View {
         Form {
             Section(header: Text(Texts.loginCredentials)) {
@@ -37,11 +41,7 @@ struct Login: View {
             .padding(.horizontal, 16)
             .listRowBackground(Color.clear)
         }
-        .navigationTitle("Login")
-    }
-    
-    private func handleLogin() {
-        isShowingAlert = true
+        .navigationTitle(Texts.login)
     }
 }
 
