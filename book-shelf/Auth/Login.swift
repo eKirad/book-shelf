@@ -14,7 +14,7 @@ struct Login: View {
         Form {
             Section(header: Text(Texts.loginCredentials)) {
                 TextField(Texts.username, text: $username)
-                    .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
+                    .autocapitalization(.none)
                     .disableAutocorrection(true)
                 
                 SecureField(Texts.password, text: $password)
@@ -35,11 +35,11 @@ struct Login: View {
                         .background(Color.cyan)
                         .cornerRadius(8)
                 }
-                .listRowBackground(Color.clear)
             }
             .padding(.vertical, 10)
             .padding(.horizontal, 16)
             .listRowBackground(Color.clear)
+
         }
         .navigationTitle(Texts.login)
     }
