@@ -22,5 +22,7 @@ struct Texts {
     static let loginCredentials = "Login Credentials"
     static let username = "username"
     static let password = "password"
+    static let repeatPassword = "Repeat password"
     static let rememberMe = "Remember me"
+    static let userData = "User data"
 }
