@@ -1,15 +1,57 @@
-//
-//  Signu.swift
-//  book-shelf
-//
-//  Created by Evgeni Kiradzhiyski on 10.12.24.
-//
-
 import SwiftUI
 
 struct Signup: View {
+    @State private var username: String = ""
+    @State private var firstName: String = ""
+    @State private var lastName: String = ""
+    @State private var password: String = ""
+    @State private var shouldRememberUser: Bool = false
+    @State private var isShowingAlert: Bool = false
+    
+    private func handleSignUp() {
+        // TODO: Missing implementation
+        isShowingAlert = true
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form {
+            Section(header: Text(Texts.userData)) {
+                TextField(Texts.firstName, text: $firstName)
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
+                
+                TextField(Texts.lastName, text: $lastName)
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
+            }
+            
+            Section(header: Text(Texts.loginCredentials)) {
+                TextField(Texts.username, text: $username)
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
+                
+                SecureField(Texts.password, text: $password)
+                SecureField(Texts.repeatPassword, text: $password)
+            }
+            
+            Section {
+                Button(action: {
+                    handleSignUp()
+                }) {
+                    Text(Texts.signUp)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.green)
+                        .cornerRadius(8)
+                }
+            }
+            .padding(.vertical, 10)
+            .padding(.horizontal, 16)
+            .listRowBackground(Color.clear)
+
+        }
+        .navigationTitle(Texts.signUp)
     }
 }
 
