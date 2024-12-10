@@ -27,7 +27,7 @@ struct SplashScreen: View {
                             .cornerRadius(16)
                     }
                 
-                    Button("Use as guest") {
+                    Button(Texts.useAsGuest) {
                         isGuestUsage.toggle()
                     }
                     .padding()

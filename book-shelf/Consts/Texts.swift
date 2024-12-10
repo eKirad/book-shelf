@@ -18,4 +18,5 @@ struct Texts {
     static let genres = "Genres:"
     static let login = "Login"
     static let signUp = "Sign-Up"
+    static let useAsGuest = "Use as a Guest"
 }
