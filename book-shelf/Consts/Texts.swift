@@ -19,4 +19,8 @@ struct Texts {
     static let login = "Login"
     static let signUp = "Sign-Up"
     static let useAsGuest = "Use as a Guest"
+    static let loginCredentials = "Login Credentials"
+    static let username = "username"
+    static let password = "password"
+    static let rememberMe = "Remember me"
 }

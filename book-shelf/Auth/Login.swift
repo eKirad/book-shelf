@@ -8,23 +8,23 @@ struct Login: View {
     
     var body: some View {
         Form {
-            Section(header: Text("Login Credentials")) {
-                TextField("username", text: $username)
+            Section(header: Text(Texts.loginCredentials)) {
+                TextField(Texts.username, text: $username)
                     .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                     .disableAutocorrection(true)
                 
-                SecureField("Password", text: $password)
+                SecureField(Texts.password, text: $password)
             }
             
             Section {
-                Toggle("Remember me", isOn: $shouldRememberUser)
+                Toggle(Texts.rememberMe, isOn: $shouldRememberUser)
             }
             
             Section {
                 Button(action: {
                     handleLogin()
                 }) {
-                    Text("Login")
+                    Text(Texts.login)
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding()
                         .foregroundColor(.white)
