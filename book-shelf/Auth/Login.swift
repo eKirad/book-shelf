@@ -5,12 +5,13 @@ struct Login: View {
     @State private var password: String = ""
     @State private var shouldRememberUser: Bool = false
     @State private var isShowingAlert: Bool = false
+    @State private var loggedInUser: User? = nil
     
     private func handleLogin() {
-        isShowingAlert = true
+        loggedInUser = User(id: UUID(), username: username, firstName: "Test", lastName: "Max")
     }
     
-    var body: some View {
+    var loginForm: some View {
         Form {
             Section(header: Text(Texts.loginCredentials)) {
                 TextField(Texts.username, text: $username)
@@ -42,6 +43,16 @@ struct Login: View {
 
         }
         .navigationTitle(Texts.login)
+    }
+    
+    var body: some View {
+        Group {
+            if let user = loggedInUser {
+                ContentView(user: user)
+            } else {
+                loginForm
+            }
+        }
     }
 }
 
