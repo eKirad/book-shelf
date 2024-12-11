@@ -6,9 +6,14 @@ struct Login: View {
     @State private var shouldRememberUser: Bool = false
     @State private var isShowingAlert: Bool = false
     @State private var loggedInUser: User? = nil
+    @State private var isLoading: Bool = false
     
     private func handleLogin() {
-        loggedInUser = User(id: UUID(), username: username, firstName: "Test", lastName: "Max")
+        isLoading = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            loggedInUser = User(id: UUID(), username: username, firstName: "Test", lastName: "Max")
+            isLoading = false
+        }
     }
     
     var loginForm: some View {
@@ -29,13 +34,21 @@ struct Login: View {
                 Button(action: {
                     handleLogin()
                 }) {
-                    Text(Texts.login)
-                        .frame(maxWidth: .infinity, alignment: .center)
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.cyan)
-                        .cornerRadius(8)
+                    HStack {
+                        isLoading ? AnyView(
+                            ProgressView()
+                                .progressViewStyle(CircularProgressViewStyle())
+                                .foregroundColor(.white)
+                        )
+                        : AnyView(Text(Texts.login))
+                    }
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Color.cyan)
+                    .cornerRadius(16)
                 }
+                .disabled(isLoading)
             }
             .padding(.vertical, 10)
             .padding(.horizontal, 16)
@@ -47,7 +60,7 @@ struct Login: View {
     
     var body: some View {
         Group {
-            if let user = loggedInUser {
+            if isLoggedIn, let user = loggedInUser {
                 ContentView(user: user)
             } else {
                 loginForm
