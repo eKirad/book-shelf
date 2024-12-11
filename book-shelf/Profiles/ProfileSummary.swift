@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ProfileSummary: View {
-    var profile: Profile
+    var profile: User
     
     var body: some View {
         ScrollView {
@@ -18,5 +18,5 @@ struct ProfileSummary: View {
 }
 
 #Preview {
-    ProfileSummary(profile: Profile.defaultProfile)
+    ProfileSummary(profile: User(id: UUID(), username: "John", firstName: "Doe", lastName: "johny", email: "test@musterman.com", areNotificationsActive: true))
 }

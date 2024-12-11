@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ProfileSummaryCard: View {
-    var profile: Profile
+    var profile: User
     
     var body: some View {
             HStack {
@@ -22,11 +22,11 @@ struct ProfileSummaryCard: View {
                 Image(systemName: "bell.fill")
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .foregroundColor(.gray)
-                 Text("\(Texts.notifications): \(profile.prefersNotifications ? "\(Texts.notificationsOn)": "\(Texts.notificationsOff)")")
+                 Text("\(Texts.notifications): \(profile.areNotificationsActive ? "\(Texts.notificationsOn)": "\(Texts.notificationsOff)")")
             }
         }
 }
 
 #Preview {
-    ProfileSummaryCard(profile: Profile.defaultProfile)
+    ProfileSummaryCard(profile: User(id: UUID(), username: "John", firstName: "Doe", lastName: "johny", email: "test@musterman.com", areNotificationsActive: true))
 }
