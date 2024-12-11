@@ -35,12 +35,13 @@ struct Login: View {
                     handleLogin()
                 }) {
                     HStack {
-                        isLoading ? AnyView(
-                            ProgressView()
-                                .progressViewStyle(CircularProgressViewStyle())
-                                .foregroundColor(.white)
-                        )
-                        : AnyView(Text(Texts.login))
+                        isLoading 
+                            ? AnyView(
+                                    ProgressView()
+                                        .progressViewStyle(CircularProgressViewStyle())
+                                        .foregroundColor(.white)
+                            )
+                            : AnyView(Text(Texts.login))
                     }
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding()
