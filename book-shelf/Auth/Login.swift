@@ -5,9 +5,9 @@ struct Login: View {
     @State private var password: String = ""
     @State private var shouldRememberUser: Bool = false
     @State private var isShowingAlert: Bool = false
-    @State private var loggedInUser: User? = nil
     @State private var isLoading: Bool = false
-    
+    @State private var loggedInUser: User? = nil
+
     private func handleLogin() {
         isLoading = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
