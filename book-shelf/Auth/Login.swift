@@ -54,7 +54,6 @@ struct Login: View {
             .padding(.vertical, 10)
             .padding(.horizontal, 16)
             .listRowBackground(Color.clear)
-
         }
         .navigationTitle(Texts.login)
     }
