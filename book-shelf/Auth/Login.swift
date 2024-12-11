@@ -60,11 +60,9 @@ struct Login: View {
     
     var body: some View {
         Group {
-            if let user = loggedInUser {
-                ContentView(user: user)
-            } else {
-                loginForm
-            }
+            loggedInUser != nil
+                ? AnyView(ContentView(user: loggedInUser!))
+                : AnyView(loginForm)
         }
     }
 }
