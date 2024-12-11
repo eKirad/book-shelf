@@ -25,4 +25,6 @@ struct Texts {
     static let repeatPassword = "Repeat password"
     static let rememberMe = "Remember me"
     static let userData = "User data"
+    static let emptyUsernameValidationError = "Username is required"
+    static let emptyPasswordValidationError = "Password is required"
 }
