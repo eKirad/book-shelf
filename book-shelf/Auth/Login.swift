@@ -69,10 +69,17 @@ struct Login: View {
                 TextField(Texts.username, text: $username)
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
+                    .onChange(of: username) { _ in
+                        usernameError = nil
+                    }
+                
                 if let usernameError = usernameError {
                     Text(usernameError)
                         .foregroundColor(.red)
                         .padding(.horizontal)
+                        .onChange(of: password) { _ in
+                            passwordError = nil
+                        }
                 }
                 
                 SecureField(Texts.password, text: $password)
