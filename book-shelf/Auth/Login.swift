@@ -47,6 +47,7 @@ struct Login: View {
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding()
                     .foregroundColor(.white)
+                    .bold()
                     .background(Color.cyan)
                     .cornerRadius(16)
                 }
