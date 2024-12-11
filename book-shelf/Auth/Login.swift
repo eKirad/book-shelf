@@ -49,7 +49,7 @@ struct Login: View {
     
     private func validateUsername() {
         if (username.isEmpty) {
-            usernameError = "username cannot be empty"
+            usernameError = Texts.emptyUsernameValidationError
         } else {
             usernameError = nil
         }
@@ -57,7 +57,7 @@ struct Login: View {
     
     private func validatePassword() {
         if (password.isEmpty) {
-            passwordError = "Password cannot be empty"
+            passwordError = Texts.emptyPasswordValidationError
         } else {
             passwordError = nil
         }
