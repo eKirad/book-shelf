@@ -5,4 +5,6 @@ struct User {
     let username: String
     let firstName: String
     let lastName: String
+    let email: String
+    let areNotificationsActive: Bool
 }

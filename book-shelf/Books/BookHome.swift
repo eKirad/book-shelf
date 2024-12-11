@@ -24,8 +24,11 @@ struct BookHome: View {
                 }
             }
             .sheet(isPresented: $isShowingProfile) {
-                ProfileHost()
-                    .environment(modelData)
+                if (loggedInUser != nil) {
+                    ProfileHost(user: loggedInUser!)
+                        // .environment(modelData)
+                }
+
             }
         } detail: {
             Text(Texts.selectBook)
