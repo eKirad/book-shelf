@@ -72,11 +72,14 @@ struct Login: View {
                     .onChange(of: username) { _ in
                         usernameError = nil
                     }
-                
-                if let usernameError = usernameError {
-                    Text(usernameError)
-                        .foregroundColor(.red)
-                        .padding(.horizontal)
+               
+                if (usernameError != nil) {
+                    HStack {
+                        Image(systemName: "exclamationmark.triangle.fill")
+                            .foregroundColor(.red)
+                        Text(Texts.emptyUsernameValidationError)
+                            .foregroundColor(.red)
+                    }
                 }
                 
                 SecureField(Texts.password, text: $password)
@@ -84,10 +87,13 @@ struct Login: View {
                         passwordError = nil
                     }
                 
-                if let passwordError = passwordError {
-                    Text(passwordError)
-                        .foregroundColor(.red)
-                        .padding(.horizontal)
+                if (passwordError != nil) {
+                    HStack {
+                        Image(systemName: "exclamationmark.triangle.fill")
+                                .foregroundColor(.red)
+                        Text(Texts.emptyPasswordValidationError)
+                            .foregroundColor(.red)
+                    }
                 }
             }
             
