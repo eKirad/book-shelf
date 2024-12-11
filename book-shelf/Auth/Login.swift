@@ -22,7 +22,7 @@ struct Login: View {
         isLoading = true
         // TODO: Mock API call
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            loggedInUser = User(id: UUID(), username: username, firstName: "Test", lastName: "Max")
+            loggedInUser = User(id: UUID(), username: username, firstName: "Test", lastName: "Max", email: "test@musterman.com", areNotificationsActive: true)
             isLoading = false
         }
     }
