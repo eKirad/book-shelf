@@ -77,12 +77,12 @@ struct Login: View {
                     Text(usernameError)
                         .foregroundColor(.red)
                         .padding(.horizontal)
-                        .onChange(of: password) { _ in
-                            passwordError = nil
-                        }
                 }
                 
                 SecureField(Texts.password, text: $password)
+                    .onChange(of: password) { _ in
+                        passwordError = nil
+                    }
                 
                 if let passwordError = passwordError {
                     Text(passwordError)
