@@ -60,7 +60,7 @@ struct Login: View {
     
     var body: some View {
         Group {
-            if isLoggedIn, let user = loggedInUser {
+            if let user = loggedInUser {
                 ContentView(user: user)
             } else {
                 loginForm
