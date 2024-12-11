@@ -3,6 +3,7 @@ import SwiftUI
 struct BookHome: View {
     @Environment(ModelData.self) var modelData
     @State private var isShowingProfile = false
+    var loggedInUser: User? = nil
     
     var body: some View {
         NavigationSplitView() {
@@ -14,10 +15,12 @@ struct BookHome: View {
             }
             .navigationTitle("\(Texts.booksNavigationTitle)")
             .toolbar {
-                Button {
-                    isShowingProfile.toggle()
-                } label: {
-                    Label("\(Labels.userProfile)", systemImage: "person.crop.circle")
+                if loggedInUser != nil {
+                    Button {
+                        isShowingProfile.toggle()
+                    } label: {
+                        Label("\(Labels.userProfile)", systemImage: "person.crop.circle")
+                    }
                 }
             }
             .sheet(isPresented: $isShowingProfile) {
