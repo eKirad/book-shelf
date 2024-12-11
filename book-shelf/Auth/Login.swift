@@ -62,7 +62,8 @@ struct Login: View {
     var body: some View {
         Group {
             loggedInUser != nil
-                ? AnyView(ContentView(user: loggedInUser!))
+                ? AnyView(ContentView(user: loggedInUser!)
+                    .navigationBarBackButtonHidden(true))
                 : AnyView(loginForm)
         }
     }
