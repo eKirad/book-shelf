@@ -1,16 +1,33 @@
 import SwiftUI
 
 struct SplashScreen: View {
-   @State private var isGuestUsage = false
-
+    @State private var isGuestUsage = false
+    @State private var loggedInUser: User? = nil
+    @State private var isLoading: Bool = false
+    
+    private func handleLogin(userData: User) {
+        isLoading = true
+        // TODO: Mock API call
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            loggedInUser = userData
+            isLoading = false
+        }
+    }
+    
     var body: some View {
         if (isGuestUsage) {
             ContentView()
+        } else if (loggedInUser != nil) {
+            ContentView(user: loggedInUser!)
         } else {
             NavigationView {
                 VStack(alignment: .center) {
                     VStack{
-                        NavigationLink(destination: Login()) {
+                        NavigationLink(destination: 
+                            Login(
+                                isLoginLoading: isLoading,
+                                handleLogin: { userData in handleLogin(userData: userData) })
+                        ) {
                             Text(Texts.login)
                                 .frame(width: 200, alignment: .center)
                                 .bold()
