@@ -14,11 +14,20 @@ struct SplashScreen: View {
         }
     }
     
+    private func handleSignout() {
+        // TODO: Mock API call
+        if (loggedInUser != nil) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                loggedInUser = nil
+            }
+        }
+    }
+    
     var body: some View {
         if (isGuestUsage) {
-            ContentView()
+            ContentView(handleSignout: {handleSignout()})
         } else if (loggedInUser != nil) {
-            ContentView(user: loggedInUser!)
+            ContentView(user: loggedInUser!, handleSignout:{handleSignout()})
         } else {
             NavigationView {
                 VStack(alignment: .center) {

@@ -2,9 +2,7 @@ import SwiftUI
 
 struct ProfileSummaryCard: View {
     var profile: User
-    
-    
-    
+    let handleSignout: () -> Void
     
     var body: some View {
             HStack {
@@ -30,7 +28,7 @@ struct ProfileSummaryCard: View {
         
         HStack {
             Button(action: {
-                print("ok")
+                handleSignout()
             }) {
                 Image(systemName: "arrow.right.circle.fill")
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
@@ -43,5 +41,7 @@ struct ProfileSummaryCard: View {
 }
 
 #Preview {
-    ProfileSummaryCard(profile: User(id: UUID(), username: "John", firstName: "Doe", lastName: "johny", email: "test@musterman.com", areNotificationsActive: true))
+    ProfileSummaryCard(profile: User(id: UUID(), username: "John", firstName: "Doe", lastName: "johny", email: "test@musterman.com", areNotificationsActive: true)) {
+        print("")
+    }
 }

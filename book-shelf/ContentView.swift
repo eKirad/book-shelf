@@ -3,10 +3,12 @@ import SwiftUI
 struct ContentView: View {
     @State private var tabSelection: MainTab = .myBooks
     var user: User? = nil
+    let handleSignout: () -> Void
     
     var body: some View {
         TabView(selection: $tabSelection) {
-            BookHome(loggedInUser: user)
+            BookHome(loggedInUser: user, handleSignout: {handleSignout()}
+            )
                 .tabItem { Label(Labels.myBooks, systemImage: "book") }
                 .tag(MainTab.myBooks)
              FindBooksHome()
@@ -20,6 +22,8 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    ContentView(handleSignout: {
+        print("Sign out")
+    })
         .environment(ModelData())
 }
