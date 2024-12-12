@@ -7,7 +7,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $tabSelection) {
-            BookHome(loggedInUser: user, handleSignout: {handleSignout()})
+            BookHome(loggedInUser: user, handleSignout: { handleSignout() } )
                 .tabItem { Label(Labels.myBooks, systemImage: "book") }
                 .tag(MainTab.myBooks)
              FindBooksHome()

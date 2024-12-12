@@ -7,7 +7,7 @@ struct ProfileHost: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            ProfileSummary(profile: user, handleSignout: {handleSignout()})
+            ProfileSummary(profile: user, handleSignout: { handleSignout() })
         }
         .padding()
     }

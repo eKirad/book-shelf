@@ -9,7 +9,7 @@ struct ProfileSummary: View {
             VStack(alignment: .leading, spacing: 10) {
                 ProfileSummaryHeader(userName: profile.username)
                 Divider()
-                ProfileSummaryCard(profile: profile, handleSignout: {handleSignout()})
+                ProfileSummaryCard(profile: profile, handleSignout: { handleSignout() })
                 Divider()
                 ProfileAchievements()
             }
