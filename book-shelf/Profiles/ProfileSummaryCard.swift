@@ -3,6 +3,9 @@ import SwiftUI
 struct ProfileSummaryCard: View {
     var profile: User
     
+    
+    
+    
     var body: some View {
             HStack {
                 Image(systemName: "person.fill")
@@ -24,7 +27,19 @@ struct ProfileSummaryCard: View {
                     .foregroundColor(.gray)
                  Text("\(Texts.notifications): \(profile.areNotificationsActive ? "\(Texts.notificationsOn)": "\(Texts.notificationsOff)")")
             }
-        }
+        
+        HStack {
+            Button(action: {
+                print("ok")
+            }) {
+                Image(systemName: "arrow.right.circle.fill")
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(.gray)
+                Text(Texts.signOut)
+                    .foregroundColor(.black)
+            }
+       }
+    }
 }
 
 #Preview {
