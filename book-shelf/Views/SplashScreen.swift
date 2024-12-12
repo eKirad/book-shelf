@@ -4,6 +4,7 @@ struct SplashScreen: View {
     @State private var isGuestUsage = false
     @State private var loggedInUser: User? = nil
     @State private var isLoading: Bool = false
+    @State private var isSignoutLoading: Bool = false
     
     private func handleLogin(userData: User) {
         isLoading = true
@@ -15,10 +16,12 @@ struct SplashScreen: View {
     }
     
     private func handleSignout() {
+        isSignoutLoading = true
         // TODO: Mock API call
         if (loggedInUser != nil) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 loggedInUser = nil
+                isSignoutLoading = false
             }
         }
     }
@@ -65,9 +68,9 @@ struct SplashScreen: View {
     
     var body: some View {
         if (isGuestUsage) {
-            ContentView(handleSignout: {handleSignout()})
+            ContentView(isSignoutLoading: isSignoutLoading, handleSignout: {handleSignout()})
         } else if (loggedInUser != nil) {
-            ContentView(user: loggedInUser!, handleSignout:{handleSignout()})
+            ContentView(user: loggedInUser!, isSignoutLoading: isSignoutLoading, handleSignout:{handleSignout()})
         } else {
             loginView
         }

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ProfileSummaryCard: View {
     var profile: User
+    let isSignoutLoading: Bool
     let handleSignout: () -> Void
     
     var body: some View {
@@ -30,9 +31,16 @@ struct ProfileSummaryCard: View {
             Button(action: {
                 handleSignout()
             }) {
-                Image(systemName: "arrow.right.circle.fill")
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                    .foregroundColor(.gray)
+                isSignoutLoading
+                  ? AnyView(ProgressView()
+                      .progressViewStyle(CircularProgressViewStyle())
+                  )
+                  : AnyView(HStack {
+                      Image(systemName: "arrow.right.circle.fill")
+                          .font(.title)
+                          .foregroundColor(.gray)
+                  })
+                
                 Text(Texts.signOut)
                     .foregroundColor(.black)
             }
@@ -41,7 +49,11 @@ struct ProfileSummaryCard: View {
 }
 
 #Preview {
-    ProfileSummaryCard(profile: User(id: UUID(), username: "John", firstName: "Doe", lastName: "johny", email: "test@musterman.com", areNotificationsActive: true)) {
-        print("")
-    }
+    ProfileSummaryCard(
+        profile: User(id: UUID(), username: "John", firstName: "Doe", lastName: "johny", email: "test@musterman.com", areNotificationsActive: true),
+        isSignoutLoading: false,
+        handleSignout: {
+            print("")
+        }
+    )
 }

@@ -4,6 +4,7 @@ struct BookHome: View {
     @Environment(ModelData.self) var modelData
     @State private var isShowingProfile = false
     var loggedInUser: User? = nil
+    let isSignoutLoading: Bool
     let handleSignout: () -> Void
     
     var body: some View {
@@ -26,7 +27,7 @@ struct BookHome: View {
             }
             .sheet(isPresented: $isShowingProfile) {
                 if (loggedInUser != nil) {
-                    ProfileHost(user: loggedInUser!, handleSignout: { handleSignout() })
+                    ProfileHost(user: loggedInUser!, isSignoutLoading: isSignoutLoading, handleSignout: { handleSignout() })
                         // .environment(modelData)
                 }
 
@@ -38,7 +39,7 @@ struct BookHome: View {
 }
 
 #Preview {
-    BookHome(handleSignout: {
+    BookHome(isSignoutLoading: false, handleSignout: {
         print("")
     }).environment(ModelData())
 }
