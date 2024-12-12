@@ -21,8 +21,8 @@ struct Login: View {
                 username: username,
                 firstName: "Test",
                 lastName: "Max",
-                email: "test@musterman.com", a
-                reNotificationsActive: true
+                email: "test@musterman.com",
+                areNotificationsActive: true
             )
             
             handleLogin(userData)
