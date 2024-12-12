@@ -128,12 +128,6 @@ struct Login: View {
     
     var body: some View {
         loginForm
-//        Group {
-//            loggedInUser != nil
-//                ? AnyView(ContentView(user: loggedInUser!)
-//                    .navigationBarBackButtonHidden(true))
-//                : AnyView(loginForm)
-//        }
     }
 }
 
