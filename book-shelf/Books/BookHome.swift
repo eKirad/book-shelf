@@ -4,6 +4,7 @@ struct BookHome: View {
     @Environment(ModelData.self) var modelData
     @State private var isShowingProfile = false
     var loggedInUser: User? = nil
+    let handleSignout: () -> Void
     
     var body: some View {
         NavigationSplitView() {
@@ -24,8 +25,11 @@ struct BookHome: View {
                 }
             }
             .sheet(isPresented: $isShowingProfile) {
-                ProfileHost()
-                    .environment(modelData)
+                if (loggedInUser != nil) {
+                    ProfileHost(user: loggedInUser!, handleSignout: { handleSignout() })
+                        // .environment(modelData)
+                }
+
             }
         } detail: {
             Text(Texts.selectBook)
@@ -34,5 +38,7 @@ struct BookHome: View {
 }
 
 #Preview {
-    BookHome().environment(ModelData())
+    BookHome(handleSignout: {
+        print("")
+    }).environment(ModelData())
 }

@@ -5,25 +5,21 @@ struct Login: View {
     @State private var password: String = ""
     @State private var shouldRememberUser: Bool = false
     @State private var isShowingAlert: Bool = false
-    @State private var isLoading: Bool = false
     @State private var usernameError: String? = nil
     @State private var passwordError: String? = nil
-    @State private var loggedInUser: User? = nil
+    
+    let isLoginLoading: Bool
+    var loggedInUser: User? = nil
+    let handleLogin: (_ userData: User) -> Void
 
     private func handleSubmit() {
         validateFormFields()
         
         if (isFormValid()) {
-            handleLogin()
-        }
-    }
-    
-    private func handleLogin() {
-        isLoading = true
-        // TODO: Mock API call
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            loggedInUser = User(id: UUID(), username: username, firstName: "Test", lastName: "Max")
-            isLoading = false
+            let userData: User = User(id: UUID(), username: username, firstName: "Test", lastName: "Max", email: "test@musterman.com", areNotificationsActive: true)
+            
+            handleLogin(userData)
+            print("loading: \(isLoginLoading)")
         }
     }
     
@@ -106,7 +102,7 @@ struct Login: View {
                     handleSubmit()
                 }) {
                     HStack {
-                        isLoading 
+                       isLoginLoading
                             ? AnyView(
                                     ProgressView()
                                         .progressViewStyle(CircularProgressViewStyle())
@@ -121,7 +117,7 @@ struct Login: View {
                     .background(Color.cyan)
                     .cornerRadius(16)
                 }
-                .disabled(isLoading)
+                .disabled(isLoginLoading)
             }
             .padding(.vertical, 10)
             .padding(.horizontal, 16)
@@ -131,15 +127,12 @@ struct Login: View {
     }
     
     var body: some View {
-        Group {
-            loggedInUser != nil
-                ? AnyView(ContentView(user: loggedInUser!)
-                    .navigationBarBackButtonHidden(true))
-                : AnyView(loginForm)
-        }
+        loginForm
     }
 }
 
 #Preview {
-    Login()
+    Login(isLoginLoading: false) { userData in
+        print("ok")
+    }
 }

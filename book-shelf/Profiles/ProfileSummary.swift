@@ -1,14 +1,15 @@
 import SwiftUI
 
 struct ProfileSummary: View {
-    var profile: Profile
+    var profile: User
+    let handleSignout: () -> Void
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
                 ProfileSummaryHeader(userName: profile.username)
                 Divider()
-                ProfileSummaryCard(profile: profile)
+                ProfileSummaryCard(profile: profile, handleSignout: { handleSignout() })
                 Divider()
                 ProfileAchievements()
             }
@@ -18,5 +19,7 @@ struct ProfileSummary: View {
 }
 
 #Preview {
-    ProfileSummary(profile: Profile.defaultProfile)
+    ProfileSummary(profile: User(id: UUID(), username: "John", firstName: "Doe", lastName: "johny", email: "test@musterman.com", areNotificationsActive: true)) {
+        print("")
+    }
 }

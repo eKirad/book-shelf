@@ -27,4 +27,5 @@ struct Texts {
     static let userData = "User data"
     static let emptyUsernameValidationError = "Username is required"
     static let emptyPasswordValidationError = "Password is required"
+    static let signOut = "Sign out"
 }
