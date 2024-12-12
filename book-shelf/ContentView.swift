@@ -6,7 +6,6 @@ struct ContentView: View {
     let isSignoutLoading: Bool
     let handleSignout: () -> Void
 
-   
     var body: some View {
         TabView(selection: $tabSelection) {
             BookHome(
@@ -29,7 +28,7 @@ struct ContentView: View {
 #Preview {
     ContentView(isSignoutLoading: false,
         handleSignout: {
-        print("Sign out")
+        print("")
     })
         .environment(ModelData())
 }
