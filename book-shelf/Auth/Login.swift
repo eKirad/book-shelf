@@ -16,7 +16,14 @@ struct Login: View {
         validateFormFields()
         
         if (isFormValid()) {
-            let userData: User = User(id: UUID(), username: username, firstName: "Test", lastName: "Max", email: "test@musterman.com", areNotificationsActive: true)
+            let userData: User = User(
+                id: UUID(),
+                username: username,
+                firstName: "Test",
+                lastName: "Max",
+                email: "test@musterman.com", a
+                reNotificationsActive: true
+            )
             
             handleLogin(userData)
         }
