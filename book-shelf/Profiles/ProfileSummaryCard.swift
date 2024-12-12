@@ -33,7 +33,8 @@ struct ProfileSummaryCard: View {
             }) {
                 isSignoutLoading
                   ? AnyView(ProgressView()
-                      .progressViewStyle(CircularProgressViewStyle())
+                        .font(.title)
+                        .progressViewStyle(CircularProgressViewStyle())
                   )
                   : AnyView(HStack {
                       Image(systemName: "arrow.right.circle.fill")
