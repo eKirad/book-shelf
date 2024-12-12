@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct ProfileHost: View {
-   // @State private var draftProfile = Profile.defaultProfile
     var user: User
     let isSignoutLoading: Bool
     let handleSignout: () -> Void
