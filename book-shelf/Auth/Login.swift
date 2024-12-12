@@ -19,7 +19,6 @@ struct Login: View {
             let userData: User = User(id: UUID(), username: username, firstName: "Test", lastName: "Max", email: "test@musterman.com", areNotificationsActive: true)
             
             handleLogin(userData)
-            print("loading: \(isLoginLoading)")
         }
     }
     
