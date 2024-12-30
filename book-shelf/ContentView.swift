@@ -15,7 +15,7 @@ struct ContentView: View {
             )
                 .tabItem { Label(Labels.myBooks, systemImage: "book") }
                 .tag(MainTab.myBooks)
-             FindBooksHome()
+            FindBooksHome()
                 .tabItem { Label(Labels.findBooks, systemImage: "magnifyingglass") }
                 .tag(MainTab.search)
             DashboardHome()
