@@ -8,6 +8,10 @@ struct ContentView: View {
 
     var body: some View {
         TabView(selection: $tabSelection) {
+            // TODO: Fix
+            SplashScreen()
+                .tabItem { Label(Labels.backToSplashScreen, systemImage: "person.circle.fill") }
+                .tag(MainTab.splashScreen)
             BookHome(
                 loggedInUser: user,
                 isSignoutLoading: isSignoutLoading,
