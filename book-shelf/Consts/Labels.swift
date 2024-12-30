@@ -6,4 +6,5 @@ struct Labels {
     static let userProfile = "User Profile"
     static let findBooks = "Find books"
     static let toggleButton = "Toggle Favourites"
+    static let backToSplashScreen = "Login"
 }
