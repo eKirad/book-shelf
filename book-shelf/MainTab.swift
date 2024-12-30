@@ -4,4 +4,5 @@ enum MainTab {
     case myBooks
     case search
     case dashboard
+    case splashScreen
 }
