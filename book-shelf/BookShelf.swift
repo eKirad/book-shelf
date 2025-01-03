@@ -6,7 +6,11 @@ struct book_shelfApp: App {
     
     var body: some Scene {
         WindowGroup {
-            SplashScreen()
+//            SplashScreenTwo(isLoggedIn: .constant(true))
+//                .environment(modelData)
+//
+            
+            ContentViewTwo()
                 .environment(modelData)
         }
     }
