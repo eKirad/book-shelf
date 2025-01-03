@@ -3,10 +3,8 @@ import SwiftUI
 
 struct MainTabTwo: View {
     @State private var tabSelection: MainTab = .myBooks
-    @Binding var loggedInUser: User? // Passed from ContentView to allow logging out
+    @Binding var loggedInUser: User?
     @Binding var isGuestUser: Bool
-    
-    
     let isSignoutLoading: Bool
     let handleSignout: () -> Void
     
@@ -17,7 +15,7 @@ struct MainTabTwo: View {
                     .tabItem {
                         Label("Logout", systemImage: "arrow.backward.circle")
                     }
-                    .tag(MainTab.splashScreen) // Tag for Logout tab
+                    .tag(MainTab.splashScreen)           
             }
             
             BookHome(
@@ -32,16 +30,14 @@ struct MainTabTwo: View {
                 .tag(MainTab.search)
             DashboardHome()
                 .tabItem { Label(Labels.dashboard, systemImage: "star") }
-              
-    }
+                .tag(MainTab.dashboard)
+        }
         .onChange(of: tabSelection) { newValue in
-            if newValue == MainTab.splashScreen { // Detect when Logout tab is selected
+            if newValue == MainTab.splashScreen {
                 loggedInUser = nil
                 isGuestUser = false
             }
         }
-    
-.tag(MainTab.dashboard)
     }
 }
 
