@@ -7,8 +7,8 @@ struct ContentViewTwo: View {
     
     var body: some View {
         NavigationStack {
-            
-            if (loggedInUser != nil || isGuestUser) {
+            let shouldShowMainScreen = loggedInUser != nil || isGuestUser
+            if (shouldShowMainScreen) {
                 MainTabTwo(
                     loggedInUser: $loggedInUser,
                     isGuestUser: $isGuestUser,
