@@ -11,7 +11,7 @@ struct MainTabTwo: View {
     var body: some View {
         TabView(selection: $tabSelection) {
             if (isGuestUser) {
-                Text("Logging out...")
+                Text("")
                     .tabItem {
                         Label("Logout", systemImage: "arrow.backward.circle")
                     }
