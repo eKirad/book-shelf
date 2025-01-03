@@ -13,7 +13,7 @@ struct MainTabTwo: View {
             if (isGuestUser) {
                 Text("")
                     .tabItem {
-                        Label("Logout", systemImage: "arrow.backward.circle")
+                        Label(Labels.backToSplashScreen, systemImage: "arrow.backward.circle")
                     }
                     .tag(MainTab.splashScreen)           
             }
