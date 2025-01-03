@@ -1,18 +1,23 @@
 import SwiftUI
 
 struct SplashScreenTwo: View {
-    @Binding var isLoggedIn: Bool
-    @State private var isGuestUsage = false
-    @State private var loggedInUser: User? = nil
+    @Binding var loggedInUser: User? // Binding to the logged-in user
+    @Binding var isGuestUser: Bool
+    
+    
+    
+    // @State private var isGuestUsage = false
     @State private var isLoading: Bool = false
     @State private var isSignoutLoading: Bool = false
+    @State private var navigateToHome = false
    
     private func handleLogin(userData: User) {
         isLoading = true
         // TODO: Mock API call
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            loggedInUser = userData
+                loggedInUser =                         User(id: UUID(), username: "John", firstName: "Doe", lastName: "johny", email: "test@musterman.com", areNotificationsActive: true)
             isLoading = false
+            navigateToHome = true
         }
     }
     
@@ -20,10 +25,21 @@ struct SplashScreenTwo: View {
         NavigationView {
             VStack(alignment: .center) {
                 VStack{
+                    NavigationLink(
+                        destination: MainTabTwo(
+                            loggedInUser: $loggedInUser,
+                            isGuestUser: $isGuestUser,
+                            isSignoutLoading: true,
+                            handleSignout: {})
+                        .navigationBarBackButtonHidden(true),
+                        isActive: $navigateToHome, // Programmatically trigger the navigation
+                        label: { EmptyView() } // The NavigationLink is hidden, but triggers navigation
+                    )
                     NavigationLink(destination:
                         Login(
                             isLoginLoading: isLoading,
-                            handleLogin: { userData in handleLogin(userData: userData) })
+                            handleLogin: { userData in handleLogin(userData: userData) }
+                        )
                     ) {
                         Text(Texts.login)
                             .frame(width: 200, alignment: .center)
@@ -45,8 +61,9 @@ struct SplashScreenTwo: View {
                     }
                     
                     Button(Texts.useAsGuest) {
-                        isLoggedIn = true
-                        isGuestUsage.toggle()
+                        isGuestUser = true
+//                        User(id: UUID(), username: "John", firstName: "Doe", lastName: "johny", email: "test@musterman.com", areNotificationsActive: true)
+//                        isGuestUsage.toggle()
                     }
                     .padding()
                 }
@@ -59,5 +76,8 @@ struct SplashScreenTwo: View {
 }
 
 #Preview {
-    SplashScreenTwo(isLoggedIn: .constant(true))
+    @State var loggedInUser: User? = nil
+    @State var isGuestUser: Bool = true
+    
+    return SplashScreenTwo(loggedInUser: $loggedInUser, isGuestUser: $isGuestUser)
 }

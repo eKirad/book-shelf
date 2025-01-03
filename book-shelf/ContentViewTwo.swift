@@ -1,14 +1,22 @@
 import SwiftUI
 
 struct ContentViewTwo: View {
-    @State private var isLoggedIn: Bool = false
-
+    @State private var loggedInUser: User? = nil
+    @State private var isGuestUser: Bool = false
+    
+    
     var body: some View {
         NavigationStack {
-            if (isLoggedIn) {
-                MainTabTwo(isLoggedIn: $isLoggedIn, isSignoutLoading: true, handleSignout: {})
+            
+            if (loggedInUser != nil || isGuestUser) {
+                MainTabTwo(
+                    loggedInUser: $loggedInUser,
+                    isGuestUser: $isGuestUser,
+                    isSignoutLoading: true,
+                    handleSignout: {}
+                )
             } else {
-                SplashScreenTwo(isLoggedIn: $isLoggedIn)
+                SplashScreenTwo(loggedInUser: $loggedInUser, isGuestUser: $isGuestUser)
             }
         }
     }

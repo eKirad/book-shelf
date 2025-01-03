@@ -9,7 +9,7 @@ struct SplashScreen: View {
     private func handleLogin(userData: User) {
         isLoading = true
         // TODO: Mock API call
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             loggedInUser = userData
             isLoading = false
         }
@@ -19,7 +19,7 @@ struct SplashScreen: View {
         isSignoutLoading = true
         // TODO: Mock API call
         if (loggedInUser != nil) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 loggedInUser = nil
                 isSignoutLoading = false
             }
@@ -31,9 +31,12 @@ struct SplashScreen: View {
             VStack(alignment: .center) {
                 VStack{
                     NavigationLink(destination:
-                        Login(
-                            isLoginLoading: isLoading,
-                            handleLogin: { userData in handleLogin(userData: userData) })
+                                    ContentView(isSignoutLoading: true, handleSignout: {})
+//                        Login(
+//                            isLoginLoading: isLoading,
+//                            loggedInUser:
+//                            // handleLogin: { userData in handleLogin(userData: userData) }
+//                        )
                     ) {
                         Text(Texts.login)
                             .frame(width: 200, alignment: .center)

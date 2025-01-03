@@ -3,7 +3,7 @@ import SwiftUI
 struct BookHome: View {
     @Environment(ModelData.self) var modelData
     @State private var isShowingProfile = false
-    var loggedInUser: User? = nil
+    var loggedInUser: User?
     let isSignoutLoading: Bool
     let handleSignout: () -> Void
     

@@ -2,22 +2,26 @@
 import SwiftUI
 
 struct MainTabTwo: View {
-    @Binding var isLoggedIn: Bool
     @State private var tabSelection: MainTab = .myBooks
-    var user: User? = nil
+    @Binding var loggedInUser: User? // Passed from ContentView to allow logging out
+    @Binding var isGuestUser: Bool
+    
+    
     let isSignoutLoading: Bool
     let handleSignout: () -> Void
     
     var body: some View {
         TabView(selection: $tabSelection) {
-            Text("Logging out...")
-                .tabItem {
-                    Label("Logout", systemImage: "arrow.backward.circle")
-                }
-                .tag(MainTab.splashScreen) // Tag for Logout tab
-
+            if (isGuestUser) {
+                Text("Logging out...")
+                    .tabItem {
+                        Label("Logout", systemImage: "arrow.backward.circle")
+                    }
+                    .tag(MainTab.splashScreen) // Tag for Logout tab
+            }
+            
             BookHome(
-                loggedInUser: user,
+                loggedInUser: loggedInUser,
                 isSignoutLoading: isSignoutLoading,
                 handleSignout: { handleSignout() }
             )
@@ -32,7 +36,8 @@ struct MainTabTwo: View {
     }
         .onChange(of: tabSelection) { newValue in
             if newValue == MainTab.splashScreen { // Detect when Logout tab is selected
-                isLoggedIn = false // Log the user out
+                loggedInUser = nil
+                isGuestUser = false
             }
         }
     
@@ -41,8 +46,12 @@ struct MainTabTwo: View {
 }
 
 #Preview {
-    MainTabTwo(
-        isLoggedIn: .constant(true), 
+    @State var loggedInUser: User? = nil
+    @State var isGuestUser: Bool = true
+    
+    return MainTabTwo(
+        loggedInUser: $loggedInUser,
+        isGuestUser: $isGuestUser,
         isSignoutLoading: true, handleSignout: {}
         )
     }

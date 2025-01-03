@@ -8,10 +8,22 @@ struct Login: View {
     @State private var usernameError: String? = nil
     @State private var passwordError: String? = nil
     
-    let isLoginLoading: Bool
-    var loggedInUser: User? = nil
+    // @Binding var loggedInUser: User? // Binding to the logged-in user@
+    
+    var isLoginLoading: Bool
+    // var loggedInUser: User? = nil
     let handleLogin: (_ userData: User) -> Void
 
+    
+//    private func handleLogin(userData: User) {
+//        // isLoginLoading = true
+//        // TODO: Mock API call
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//            loggedInUser =                         User(id: UUID(), username: "John", firstName: "Doe", lastName: "johny", email: "test@musterman.com", areNotificationsActive: true)
+//        // isLoginLoading = false
+//        }
+//    }
+    
     private func handleSubmit() {
         validateFormFields()
         
@@ -141,4 +153,7 @@ struct Login: View {
     Login(isLoginLoading: false) { userData in
         print("ok")
     }
+//    @State var loggedInUser: User? = nil
+//    
+//    return Login(loggedInUser: $loggedInUser, isLoginLoading: true)
 }
