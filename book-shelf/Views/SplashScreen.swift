@@ -68,8 +68,12 @@ struct SplashScreen: View {
     
     var body: some View {
         if (isGuestUsage) {
-            ContentView(isSignoutLoading: isSignoutLoading, handleSignout: {handleSignout()})
+            ContentView(
+                isSignoutLoading: isSignoutLoading,
+                handleSignout: {handleSignout()}
+            )
         } else if (loggedInUser != nil) {
+            loginView
             ContentView(user: loggedInUser!, isSignoutLoading: isSignoutLoading, handleSignout:{handleSignout()})
         } else {
             loginView
