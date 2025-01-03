@@ -1,12 +1,9 @@
 import SwiftUI
 
 struct SplashScreenTwo: View {
-    @Binding var loggedInUser: User? // Binding to the logged-in user
+    @Binding var loggedInUser: User?
     @Binding var isGuestUser: Bool
     
-    
-    
-    // @State private var isGuestUsage = false
     @State private var isLoading: Bool = false
     @State private var isSignoutLoading: Bool = false
     @State private var navigateToHome = false
@@ -32,8 +29,8 @@ struct SplashScreenTwo: View {
                             isSignoutLoading: true,
                             handleSignout: {})
                         .navigationBarBackButtonHidden(true),
-                        isActive: $navigateToHome, // Programmatically trigger the navigation
-                        label: { EmptyView() } // The NavigationLink is hidden, but triggers navigation
+                        isActive: $navigateToHome,
+                        label: { EmptyView() }
                     )
                     NavigationLink(destination:
                         Login(
@@ -62,8 +59,6 @@ struct SplashScreenTwo: View {
                     
                     Button(Texts.useAsGuest) {
                         isGuestUser = true
-//                        User(id: UUID(), username: "John", firstName: "Doe", lastName: "johny", email: "test@musterman.com", areNotificationsActive: true)
-//                        isGuestUsage.toggle()
                     }
                     .padding()
                 }
