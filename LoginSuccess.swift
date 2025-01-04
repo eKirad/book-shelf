@@ -8,7 +8,9 @@ struct LoginSuccess: View {
             Text(Texts.loginSuccessful)
                 .font(.largeTitle)
                 .padding()
-
+            Image(systemName: "checkmark.circle.fill") // Green check icon
+                .foregroundColor(.green)
+                .font(.system(size: 100))
             Text(Texts.redirectionNotification)
                 .foregroundColor(.gray)
                 .padding()
