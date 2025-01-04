@@ -4,7 +4,6 @@ struct SplashScreen: View {
     @Binding var loggedInUser: User?
     @Binding var isGuestUser: Bool
     @Binding var hasLoggedIn: Bool
-    
     @State private var isLoading: Bool = false
     @State private var isSignoutLoading: Bool = false
     @State private var navigateToHome = false
@@ -13,32 +12,29 @@ struct SplashScreen: View {
         isLoading = true
         // TODO: Mock API call
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                loggedInUser =                         User(id: UUID(), username: "John", firstName: "Doe", lastName: "johny", email: "test@musterman.com", areNotificationsActive: true)
-
+            loggedInUser = User(
+                id: UUID(),
+                username: "John",
+                firstName: "Doe",
+                lastName: "johny",
+                email: "test@musterman.com",
+                areNotificationsActive: true
+            )
+            
             navigateToHome = true
             isLoading = false
         }
-
     }
     
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
                 VStack{
-//                    NavigationLink(
-//                        destination: MainView(
-//                            loggedInUser: $loggedInUser,
-//                            isGuestUser: $isGuestUser
-//                        )
-//                        .navigationBarBackButtonHidden(true),
-//                        isActive: $navigateToHome,
-//                        label: { EmptyView() }
-//                    )
                     NavigationLink(
-                        destination: LoginSuccess(hasLoggedIn: $hasLoggedIn), // Intermediate view after login
+                        destination: LoginSuccess(hasLoggedIn: $hasLoggedIn),
                         isActive: $navigateToHome,
                         label: {
-                            EmptyView() // Hidden link
+                            EmptyView()
                         }
                     )
                     .hidden()
