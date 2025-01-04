@@ -22,9 +22,6 @@ struct ProfileSummary: View {
             VStack(alignment: .leading, spacing: 10) {
                 ProfileSummaryHeader(userName: loggedInUser!.username)
                 Divider()
-                if (loggedInUser == nil) {
-                    Text("nill")
-                }
 //                ProfileSummaryCard(loggedInUser: $loggedInUser)
                 if (loggedInUser != nil) {
                     HStack {
