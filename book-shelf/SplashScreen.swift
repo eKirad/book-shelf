@@ -3,6 +3,7 @@ import SwiftUI
 struct SplashScreen: View {
     @Binding var loggedInUser: User?
     @Binding var isGuestUser: Bool
+    @Binding var hasLoggedIn: Bool
     
     @State private var isLoading: Bool = false
     @State private var isSignoutLoading: Bool = false
@@ -13,24 +14,34 @@ struct SplashScreen: View {
         // TODO: Mock API call
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 loggedInUser =                         User(id: UUID(), username: "John", firstName: "Doe", lastName: "johny", email: "test@musterman.com", areNotificationsActive: true)
-            isLoading = false
+
             navigateToHome = true
+            isLoading = false
         }
+
     }
     
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
                 VStack{
+//                    NavigationLink(
+//                        destination: MainView(
+//                            loggedInUser: $loggedInUser,
+//                            isGuestUser: $isGuestUser
+//                        )
+//                        .navigationBarBackButtonHidden(true),
+//                        isActive: $navigateToHome,
+//                        label: { EmptyView() }
+//                    )
                     NavigationLink(
-                        destination: MainView(
-                            loggedInUser: $loggedInUser,
-                            isGuestUser: $isGuestUser
-                        )
-                        .navigationBarBackButtonHidden(true),
+                        destination: LoginSuccess(hasLoggedIn: $hasLoggedIn), // Intermediate view after login
                         isActive: $navigateToHome,
-                        label: { EmptyView() }
+                        label: {
+                            EmptyView() // Hidden link
+                        }
                     )
+                    .hidden()
                     NavigationLink(destination:
                         Login(
                             isLoginLoading: isLoading,
@@ -72,6 +83,7 @@ struct SplashScreen: View {
 #Preview {
     @State var loggedInUser: User? = nil
     @State var isGuestUser: Bool = true
+    @State var hasLoggedIn: Bool = false
     
-    return SplashScreen(loggedInUser: $loggedInUser, isGuestUser: $isGuestUser)
+    return SplashScreen(loggedInUser: $loggedInUser, isGuestUser: $isGuestUser, hasLoggedIn: $hasLoggedIn)
 }
