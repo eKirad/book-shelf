@@ -27,7 +27,6 @@ struct BookHome: View {
             .sheet(isPresented: $isShowingProfile) {
                 if (loggedInUser != nil) {
                     ProfileHost(isShowingProfile: $isShowingProfile, loggedInUser: $loggedInUser)
-                        // .environment(modelData)
                 }
 
             }
