@@ -11,7 +11,7 @@ struct ContentView: View {
             if (shouldShowMainScreen) {
                 MainView(loggedInUser: $loggedInUser, isGuestUser: $isGuestUser)
             } else {
-                SplashScreenTwo(loggedInUser: $loggedInUser, isGuestUser: $isGuestUser)
+                SplashScreen(loggedInUser: $loggedInUser, isGuestUser: $isGuestUser)
             }
         }
     }

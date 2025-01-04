@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SplashScreenTwo: View {
+struct SplashScreen: View {
     @Binding var loggedInUser: User?
     @Binding var isGuestUser: Bool
     
@@ -73,5 +73,5 @@ struct SplashScreenTwo: View {
     @State var loggedInUser: User? = nil
     @State var isGuestUser: Bool = true
     
-    return SplashScreenTwo(loggedInUser: $loggedInUser, isGuestUser: $isGuestUser)
+    return SplashScreen(loggedInUser: $loggedInUser, isGuestUser: $isGuestUser)
 }
