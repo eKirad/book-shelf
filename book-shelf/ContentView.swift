@@ -3,9 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var loggedInUser: User? = nil
     @State private var isGuestUser: Bool = false
-    @State private var shouldNavigateToHome: Bool = false
     @State private var hasLoggedIn: Bool = false
-    
     
     var body: some View {
         NavigationView {
