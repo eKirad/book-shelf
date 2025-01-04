@@ -20,7 +20,7 @@ struct ProfileSummary: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
-                // ProfileSummaryHeader(userName: profile.username)
+                ProfileSummaryHeader(userName: loggedInUser!.username)
                 Divider()
                 if (loggedInUser == nil) {
                     Text("nill")
