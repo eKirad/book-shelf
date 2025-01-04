@@ -15,11 +15,12 @@ struct LoginSuccess: View {
                 .foregroundColor(.gray)
                 .padding()
             .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                        hasLoggedIn = true
-                    }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    hasLoggedIn = true
                 }
+            }
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
