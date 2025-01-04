@@ -28,4 +28,6 @@ struct Texts {
     static let emptyUsernameValidationError = "Username is required"
     static let emptyPasswordValidationError = "Password is required"
     static let signOut = "Sign out"
+    static let loginSuccessful = "Login Successful!"
+    static let redirectionNotification = "You will be redirected shortly..."
 }
