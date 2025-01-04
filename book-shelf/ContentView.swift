@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ContentViewTwo: View {
+struct ContentView: View {
     @State private var loggedInUser: User? = nil
     @State private var isGuestUser: Bool = false
     
@@ -18,5 +18,5 @@ struct ContentViewTwo: View {
 }
 
 #Preview {
-    ContentViewTwo()
+    ContentView()
 }
