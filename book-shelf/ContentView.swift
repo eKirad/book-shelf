@@ -7,9 +7,9 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            let shouldShowMainScreen = loggedInUser != nil || isGuestUser
+            let shouldShowMainScreen = (loggedInUser != nil && hasLoggedIn) || isGuestUser
             
-            if (shouldShowMainScreen && hasLoggedIn) {
+            if (shouldShowMainScreen) {
                 MainView(loggedInUser: $loggedInUser, isGuestUser: $isGuestUser)
             } else {
                 SplashScreen(loggedInUser: $loggedInUser, isGuestUser: $isGuestUser, hasLoggedIn: $hasLoggedIn)
