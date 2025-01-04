@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ProfileSummaryCard: View {
+    @Binding var isShowingProfile: Bool
     @Binding var loggedInUser: User?
     @State var isSignoutLoading: Bool = false
     
@@ -11,6 +12,7 @@ struct ProfileSummaryCard: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 loggedInUser = nil
                 isSignoutLoading = false
+                isShowingProfile = false
             }
         }
     }   
@@ -20,21 +22,21 @@ struct ProfileSummaryCard: View {
             Image(systemName: "person.fill")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .foregroundColor(.gray)
-            Text("\(Texts.fullName): \(loggedInUser!.firstName) \(loggedInUser!.lastName)")
+            Text("\(Texts.fullName): \(loggedInUser?.firstName ?? "n/A") \(loggedInUser?.lastName ?? "n/A")")
         }
        
          HStack {
             Image(systemName: "envelope.fill")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .foregroundColor(.gray)
-             Text("\(loggedInUser!.email)")
+             Text("\(loggedInUser?.email ?? "n/A")")
         }
        
          HStack {
             Image(systemName: "bell.fill")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .foregroundColor(.gray)
-             Text("\(Texts.notifications): \(loggedInUser!.areNotificationsActive ? "\(Texts.notificationsOn)": "\(Texts.notificationsOff)")")
+             Text("\(Texts.notifications): \(loggedInUser?.areNotificationsActive ?? false ? "\(Texts.notificationsOn)": "\(Texts.notificationsOff)")")
         }
     
         HStack {
@@ -61,6 +63,7 @@ struct ProfileSummaryCard: View {
 
 #Preview {
     @State var loggedInUser: User? = nil
+    @State var isShowingProfile: Bool = false
 
-    return ProfileSummaryCard(loggedInUser: $loggedInUser)
+    return ProfileSummaryCard(isShowingProfile: $isShowingProfile, loggedInUser: $loggedInUser)
 }

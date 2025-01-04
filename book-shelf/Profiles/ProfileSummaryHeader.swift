@@ -1,12 +1,12 @@
 import SwiftUI
 
 struct ProfileSummaryHeader: View {
-    var userName: String
+    @Binding var loggedInUser: User?
     
     var body: some View {
         HStack {
             defaultProfileImage()
-            Text(userName)
+            Text(loggedInUser?.username ?? "n/A")
                 .bold()
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
             Spacer()
@@ -38,5 +38,7 @@ struct ProfileSummaryHeader: View {
 }
 
 #Preview {
-    ProfileSummaryHeader(userName: Profile.defaultProfile.username)
+    @State var loggedInUser: User? = nil
+    
+    return ProfileSummaryHeader(loggedInUser: $loggedInUser)
 }
