@@ -4,7 +4,6 @@ import SwiftUI
 struct MainView: View {
     @Binding var loggedInUser: User?
     @Binding var isGuestUser: Bool
-    
     @State private var tabSelection: MainTab = .myBooks
    
     var body: some View {
@@ -41,4 +40,4 @@ struct MainView: View {
     @State var isGuestUser: Bool = true
     
     return MainView(loggedInUser: $loggedInUser, isGuestUser: $isGuestUser)
-    }
+}
