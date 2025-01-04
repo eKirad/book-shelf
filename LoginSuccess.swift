@@ -1,18 +1,28 @@
-//
-//  LoginSuccess.swift
-//  book-shelf
-//
-//  Created by Evgeni Kiradzhiyski on 4.01.25.
-//
-
 import SwiftUI
 
 struct LoginSuccess: View {
+    @Binding var hasLoggedIn: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text(Texts.loginSuccessful)
+                .font(.largeTitle)
+                .padding()
+
+            Text(Texts.redirectionNotification)
+                .foregroundColor(.gray)
+                .padding()
+            .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        hasLoggedIn = true
+                    }
+                }
+        }
     }
 }
 
 #Preview {
-    LoginSuccess()
+    @State var hasLoggedIn: Bool = false
+    
+    return LoginSuccess(hasLoggedIn: $hasLoggedIn)
 }
