@@ -25,9 +25,8 @@ struct SplashScreenTwo: View {
                     NavigationLink(
                         destination: MainTabTwo(
                             loggedInUser: $loggedInUser,
-                            isGuestUser: $isGuestUser,
-                            isSignoutLoading: true,
-                            handleSignout: {})
+                            isGuestUser: $isGuestUser
+                        )
                         .navigationBarBackButtonHidden(true),
                         isActive: $navigateToHome,
                         label: { EmptyView() }

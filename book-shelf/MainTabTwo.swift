@@ -2,12 +2,11 @@
 import SwiftUI
 
 struct MainTabTwo: View {
-    @State private var tabSelection: MainTab = .myBooks
     @Binding var loggedInUser: User?
     @Binding var isGuestUser: Bool
-    let isSignoutLoading: Bool
-    let handleSignout: () -> Void
     
+    @State private var tabSelection: MainTab = .myBooks
+   
     var body: some View {
         TabView(selection: $tabSelection) {
             if (isGuestUser) {
@@ -18,11 +17,7 @@ struct MainTabTwo: View {
                     .tag(MainTab.splashScreen)           
             }
             
-            BookHome(
-                loggedInUser: loggedInUser,
-                isSignoutLoading: isSignoutLoading,
-                handleSignout: { handleSignout() }
-            )
+            BookHome(loggedInUser: $loggedInUser)
                 .tabItem { Label(Labels.myBooks, systemImage: "book") }
                 .tag(MainTab.myBooks)
             FindBooksHome()
@@ -45,9 +40,5 @@ struct MainTabTwo: View {
     @State var loggedInUser: User? = nil
     @State var isGuestUser: Bool = true
     
-    return MainTabTwo(
-        loggedInUser: $loggedInUser,
-        isGuestUser: $isGuestUser,
-        isSignoutLoading: true, handleSignout: {}
-        )
+    return MainTabTwo(loggedInUser: $loggedInUser, isGuestUser: $isGuestUser)
     }
