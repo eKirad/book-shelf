@@ -1,11 +1,10 @@
 import SwiftUI
 
 struct BookHome: View {
+    @Binding var loggedInUser: User?
+    
     @Environment(ModelData.self) var modelData
     @State private var isShowingProfile = false
-    var loggedInUser: User?
-    let isSignoutLoading: Bool
-    let handleSignout: () -> Void
     
     var body: some View {
         NavigationSplitView() {
@@ -27,7 +26,7 @@ struct BookHome: View {
             }
             .sheet(isPresented: $isShowingProfile) {
                 if (loggedInUser != nil) {
-                    ProfileHost(user: loggedInUser!, isSignoutLoading: isSignoutLoading, handleSignout: { handleSignout() })
+                    ProfileHost(isShowingProfile: $isShowingProfile, loggedInUser: $loggedInUser)
                         // .environment(modelData)
                 }
 
@@ -39,7 +38,8 @@ struct BookHome: View {
 }
 
 #Preview {
-    BookHome(isSignoutLoading: false, handleSignout: {
-        print("")
-    }).environment(ModelData())
+    @State var loggedInUser: User? = nil
+    
+    return BookHome(loggedInUser: $loggedInUser)
+    .environment(ModelData())
 }
