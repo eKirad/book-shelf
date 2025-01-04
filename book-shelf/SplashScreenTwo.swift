@@ -23,7 +23,7 @@ struct SplashScreenTwo: View {
             VStack(alignment: .center) {
                 VStack{
                     NavigationLink(
-                        destination: MainTabTwo(
+                        destination: MainView(
                             loggedInUser: $loggedInUser,
                             isGuestUser: $isGuestUser
                         )

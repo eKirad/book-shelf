@@ -1,7 +1,7 @@
 
 import SwiftUI
 
-struct MainTabTwo: View {
+struct MainView: View {
     @Binding var loggedInUser: User?
     @Binding var isGuestUser: Bool
     
@@ -40,5 +40,5 @@ struct MainTabTwo: View {
     @State var loggedInUser: User? = nil
     @State var isGuestUser: Bool = true
     
-    return MainTabTwo(loggedInUser: $loggedInUser, isGuestUser: $isGuestUser)
+    return MainView(loggedInUser: $loggedInUser, isGuestUser: $isGuestUser)
     }

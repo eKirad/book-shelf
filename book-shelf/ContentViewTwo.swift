@@ -9,7 +9,7 @@ struct ContentViewTwo: View {
             let shouldShowMainScreen = loggedInUser != nil || isGuestUser
             
             if (shouldShowMainScreen) {
-                MainTabTwo(loggedInUser: $loggedInUser, isGuestUser: $isGuestUser)
+                MainView(loggedInUser: $loggedInUser, isGuestUser: $isGuestUser)
             } else {
                 SplashScreenTwo(loggedInUser: $loggedInUser, isGuestUser: $isGuestUser)
             }
