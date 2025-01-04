@@ -1,30 +1,40 @@
 import SwiftUI
 
 struct ProfileSummaryCard: View {
-    var profile: User
-    let isSignoutLoading: Bool
-    let handleSignout: () -> Void
+    @Binding var loggedInUser: User?
+    @State var isSignoutLoading: Bool = false
+    
+    private func handleSignout() {
+        isSignoutLoading = true
+        // TODO: Mock API call
+        if (loggedInUser != nil) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                loggedInUser = nil
+                isSignoutLoading = false
+            }
+        }
+    }   
     
     var body: some View {
         HStack {
             Image(systemName: "person.fill")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .foregroundColor(.gray)
-            Text("\(Texts.fullName): \(profile.firstName) \(profile.lastName)")
+            Text("\(Texts.fullName): \(loggedInUser!.firstName) \(loggedInUser!.lastName)")
         }
        
          HStack {
             Image(systemName: "envelope.fill")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .foregroundColor(.gray)
-             Text("\(profile.email)")
+             Text("\(loggedInUser!.email)")
         }
        
          HStack {
             Image(systemName: "bell.fill")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .foregroundColor(.gray)
-             Text("\(Texts.notifications): \(profile.areNotificationsActive ? "\(Texts.notificationsOn)": "\(Texts.notificationsOff)")")
+             Text("\(Texts.notifications): \(loggedInUser!.areNotificationsActive ? "\(Texts.notificationsOn)": "\(Texts.notificationsOff)")")
         }
     
         HStack {
@@ -50,11 +60,7 @@ struct ProfileSummaryCard: View {
 }
 
 #Preview {
-    ProfileSummaryCard(
-        profile: User(id: UUID(), username: "John", firstName: "Doe", lastName: "johny", email: "test@musterman.com", areNotificationsActive: true),
-        isSignoutLoading: false,
-        handleSignout: {
-            print("")
-        }
-    )
+    @State var loggedInUser: User? = nil
+
+    return ProfileSummaryCard(loggedInUser: $loggedInUser)
 }

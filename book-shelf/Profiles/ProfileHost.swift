@@ -1,24 +1,20 @@
 import SwiftUI
 
 struct ProfileHost: View {
-    var user: User
-    let isSignoutLoading: Bool
-    let handleSignout: () -> Void
+    @Binding var isShowingProfile: Bool
+    @Binding var loggedInUser: User?
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            ProfileSummary(profile: user, isSignoutLoading: isSignoutLoading, handleSignout: { handleSignout() })
+            ProfileSummary(isShowingProfile: $isShowingProfile, loggedInUser: $loggedInUser)
         }
         .padding()
     }
 }
 
 #Preview {
-    ProfileHost(
-        user: User(id: UUID(), username: "John", firstName: "Doe", lastName: "johny", email: "test@musterman.com", areNotificationsActive: true),
-        isSignoutLoading: false,
-        handleSignout: {
-            print("")
-        }
-    )
+    @State var loggedInUser: User? = nil
+    @State var isShowingProfile: Bool = false
+    
+    return ProfileHost(isShowingProfile: $isShowingProfile, loggedInUser: $loggedInUser)
 }
