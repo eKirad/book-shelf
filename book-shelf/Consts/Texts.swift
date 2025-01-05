@@ -30,4 +30,5 @@ struct Texts {
     static let signOut = "Sign out"
     static let loginSuccessful = "Login Successful!"
     static let redirectionNotification = "You will be redirected shortly..."
+    static let nA = "n/A"
 }
