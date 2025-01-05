@@ -139,6 +139,7 @@
 		D27066E22CF8ECA000133396 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D27066EA2CF8F5ED00133396 /* MainTab.swift */,
 				D27066E32CF8ECAF00133396 /* Book.swift */,
 				D27066E52CF8ED2400133396 /* ModelData.swift */,
 				D2D8DDD72CFB2810004A6E0F /* Profile.swift */,
@@ -151,6 +152,9 @@
 		D27066E72CF8EDD700133396 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D2FA7B552D28104F004CDC37 /* ContentView.swift */,
+				D2FA7B572D2810B2004CDC37 /* SplashScreen.swift */,
+				D2FA7B592D2810BD004CDC37 /* MainView.swift */,
 				D2D8DDDC2CFB4824004A6E0F /* Badges */,
 				D27066E82CF8EDE400133396 /* BookDetail.swift */,
 				D21B2EED2D03432A00341BBB /* CircleImage.swift */,
@@ -245,7 +249,6 @@
 				D2D8DDD92CFB33C8004A6E0F /* FindBooks */,
 				D2D8DDD22CFB27C5004A6E0F /* Profiles */,
 				D27066EC2CF8F75400133396 /* Consts */,
-				D27066EA2CF8F5ED00133396 /* MainTab.swift */,
 				D27066E72CF8EDD700133396 /* Views */,
 				D27066E22CF8ECA000133396 /* Models */,
 				D27066DD2CF8E1DB00133396 /* Dashboard */,
@@ -253,9 +256,6 @@
 				D2F4F64B2CF8B227008749AD /* BookShelf.swift */,
 				D2F4F64F2CF8B228008749AD /* Assets.xcassets */,
 				D2F4F6512CF8B228008749AD /* Preview Content */,
-				D2FA7B552D28104F004CDC37 /* ContentView.swift */,
-				D2FA7B572D2810B2004CDC37 /* SplashScreen.swift */,
-				D2FA7B592D2810BD004CDC37 /* MainView.swift */,
 			);
 			path = "book-shelf";
 			sourceTree = "<group>";
