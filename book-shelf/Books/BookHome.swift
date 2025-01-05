@@ -2,7 +2,6 @@ import SwiftUI
 
 struct BookHome: View {
     @Binding var loggedInUser: User?
-    
     @Environment(ModelData.self) var modelData
     @State private var isShowingProfile = false
     
@@ -11,8 +10,6 @@ struct BookHome: View {
             List {
                 ForEach(modelData.genres.keys.sorted(), id: \.self) { key in
                     BookRow(genreName: key, books: modelData.genres[key]!)
-                }
-             //.listRowInsets(EdgeInsets())
             }
             .navigationTitle("\(Texts.booksNavigationTitle)")
             .toolbar {
