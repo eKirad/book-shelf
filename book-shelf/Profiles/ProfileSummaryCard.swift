@@ -22,14 +22,14 @@ struct ProfileSummaryCard: View {
             Image(systemName: "person.fill")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .foregroundColor(.gray)
-            Text("\(Texts.fullName): \(loggedInUser?.firstName ?? "n/A") \(loggedInUser?.lastName ?? "n/A")")
+            Text("\(Texts.fullName): \(loggedInUser?.firstName ?? Texts.nA) \(loggedInUser?.lastName ?? Texts.nA)")
         }
        
          HStack {
             Image(systemName: "envelope.fill")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .foregroundColor(.gray)
-             Text("\(loggedInUser?.email ?? "n/A")")
+             Text("\(loggedInUser?.email ?? Texts.nA)")
         }
        
          HStack {
