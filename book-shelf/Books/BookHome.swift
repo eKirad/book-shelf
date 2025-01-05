@@ -38,5 +38,5 @@ struct BookHome: View {
     @State var loggedInUser: User? = nil
     
     return BookHome(loggedInUser: $loggedInUser)
-    .environment(ModelData())
+        .environment(ModelData())
 }
