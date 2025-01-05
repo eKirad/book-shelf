@@ -4,6 +4,7 @@ struct ProfileSummaryCard: View {
     @Binding var isShowingProfile: Bool
     @Binding var loggedInUser: User?
     @State var isSignoutLoading: Bool = false
+    @State private var isOn: Bool = false
     
     private func handleSignout() {
         isSignoutLoading = true
@@ -36,8 +37,19 @@ struct ProfileSummaryCard: View {
             Image(systemName: "bell.fill")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .foregroundColor(.gray)
-             Text("\(Texts.notifications): \(loggedInUser?.areNotificationsActive ?? false ? "\(Texts.notificationsOn)": "\(Texts.notificationsOff)")")
-        }
+             Toggle(isOn: Binding(
+                get: { loggedInUser?.areNotificationsActive ?? false },
+                set: { newValue in
+                     if loggedInUser != nil {
+                         loggedInUser?.areNotificationsActive = newValue
+                     }
+                 }
+             )) {
+                 Text("\(Texts.notifications): \(loggedInUser?.areNotificationsActive ?? false ? "\(Texts.notificationsOn)": "\(Texts.notificationsOff)")")
+             }
+             .disabled(loggedInUser == nil)
+             .padding(.horizontal)
+         }
     
         HStack {
             Button(action: {
