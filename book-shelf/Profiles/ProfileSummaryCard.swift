@@ -39,10 +39,10 @@ struct ProfileSummaryCard: View {
                 .foregroundColor(.gray)
              Toggle(isOn: Binding(
                 get: { loggedInUser?.areNotificationsActive ?? false },
-                set: { newValue in
-                     if loggedInUser != nil {
-                         loggedInUser?.areNotificationsActive = newValue
-                     }
+                set: { notificationsToggleValue in
+                    if loggedInUser != nil {
+                        loggedInUser?.areNotificationsActive = notificationsToggleValue
+                    }
                  }
              )) {
                  Text("\(Texts.notifications): \(loggedInUser?.areNotificationsActive ?? false ? "\(Texts.notificationsOn)": "\(Texts.notificationsOff)")")
