@@ -4,7 +4,6 @@ struct ProfileSummaryCard: View {
     @Binding var isShowingProfile: Bool
     @Binding var loggedInUser: User?
     @State var isSignoutLoading: Bool = false
-    @State private var isOn: Bool = false
     
     private func handleSignout() {
         isSignoutLoading = true
