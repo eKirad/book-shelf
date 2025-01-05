@@ -36,8 +36,19 @@ struct ProfileSummaryCard: View {
             Image(systemName: "bell.fill")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .foregroundColor(.gray)
-             Text("\(Texts.notifications): \(loggedInUser?.areNotificationsActive ?? false ? "\(Texts.notificationsOn)": "\(Texts.notificationsOff)")")
-        }
+             Toggle(isOn: Binding(
+                get: { loggedInUser?.areNotificationsActive ?? false },
+                set: { notificationsToggleValue in
+                    if loggedInUser != nil {
+                        loggedInUser?.areNotificationsActive = notificationsToggleValue
+                    }
+                 }
+             )) {
+                 Text("\(Texts.notifications): \(loggedInUser?.areNotificationsActive ?? false ? "\(Texts.notificationsOn)": "\(Texts.notificationsOff)")")
+             }
+             .disabled(loggedInUser == nil)
+             .padding(.horizontal)
+         }
     
         HStack {
             Button(action: {
