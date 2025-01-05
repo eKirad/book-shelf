@@ -10,6 +10,7 @@ struct BookHome: View {
             List {
                 ForEach(modelData.genres.keys.sorted(), id: \.self) { key in
                     BookRow(genreName: key, books: modelData.genres[key]!)
+                }
             }
             .navigationTitle("\(Texts.booksNavigationTitle)")
             .toolbar {
