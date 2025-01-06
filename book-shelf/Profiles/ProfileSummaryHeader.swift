@@ -15,7 +15,7 @@ struct ProfileSummaryHeader: View {
     var body: some View {
         HStack {
             defaultProfileImage()
-            Text(loggedInUser?.username ?? "n/A")
+            Text(loggedInUser?.username ?? Texts.nA)
                 .bold()
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
             Spacer()
