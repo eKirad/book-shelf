@@ -18,6 +18,49 @@ struct ProfileSummaryCard: View {
         }
     }
     
+    var settingsView: some View {
+        VStack {
+            HStack {
+               Image(systemName: "bell.fill")
+                   .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                   .foregroundColor(.gray)
+                Toggle(isOn: Binding(
+                   get: { loggedInUser?.areNotificationsActive ?? false },
+                   set: { notificationsToggleValue in
+                       if loggedInUser != nil {
+                           loggedInUser?.areNotificationsActive = notificationsToggleValue
+                       }
+                    }
+                )) {
+                    Text("\(Texts.notifications): \(loggedInUser?.areNotificationsActive ?? false ? "\(Texts.notificationsOn)": "\(Texts.notificationsOff)")")
+                }
+                .disabled(loggedInUser == nil)
+                .padding(.horizontal)
+            }
+            
+            HStack {
+                Button(action: {
+                    handleSignout()
+                }) {
+                    isSignoutLoading
+                      ? AnyView(ProgressView()
+                            .font(.title)
+                            .progressViewStyle(CircularProgressViewStyle())
+                      )
+                      : AnyView(HStack {
+                          Image(systemName: "arrow.right.circle.fill")
+                              .font(.title)
+                              .foregroundColor(.gray)
+                      })
+
+                    Text(Texts.signOut)
+                        .foregroundColor(.black)
+                        .padding(.horizontal)
+                }
+           }
+        }
+    }
+    
     var body: some View {
         NavigationView {
             if let user = loggedInUser {
@@ -87,43 +130,8 @@ struct ProfileSummaryCard: View {
             }
 
         }
-        
-        HStack {
-           Image(systemName: "bell.fill")
-               .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-               .foregroundColor(.gray)
-            Toggle(isOn: Binding(
-               get: { loggedInUser?.areNotificationsActive ?? false },
-               set: { notificationsToggleValue in
-                   if loggedInUser != nil {
-                       loggedInUser?.areNotificationsActive = notificationsToggleValue
-                   }
-                }
-            )) {
-                Text("\(Texts.notifications): \(loggedInUser?.areNotificationsActive ?? false ? "\(Texts.notificationsOn)": "\(Texts.notificationsOff)")")
-            }
-            .disabled(loggedInUser == nil)
-            .padding(.horizontal)
-        }
-        HStack {
-            Button(action: {
-                handleSignout()
-            }) {
-                isSignoutLoading
-                  ? AnyView(ProgressView()
-                        .font(.title)
-                        .progressViewStyle(CircularProgressViewStyle())
-                  )
-                  : AnyView(HStack {
-                      Image(systemName: "arrow.right.circle.fill")
-                          .font(.title)
-                          .foregroundColor(.gray)
-                  })
-
-                Text(Texts.signOut)
-                    .foregroundColor(.black)
-            }
-       }
+            
+        settingsView
     }
 }
 
