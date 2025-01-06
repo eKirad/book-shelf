@@ -4,6 +4,14 @@ struct ProfileSummaryHeader: View {
     @Binding var loggedInUser: User?
     @Binding var isEditDisabled: Bool
     
+    
+    private var negatedEditBinding: Binding<Bool> {
+        Binding(
+            get: { !isEditDisabled },
+            set: { isEditDisabled = !$0 }
+        )
+    }
+    
     var body: some View {
         HStack {
             defaultProfileImage()
@@ -11,16 +19,18 @@ struct ProfileSummaryHeader: View {
                 .bold()
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
             Spacer()
-            
-            Button(action: {
-                isEditDisabled.toggle()
-            }) {
-                HStack {
-                    Text(Texts.edit)
-                        .foregroundColor(.cyan)
-                    Image(systemName: "square.and.pencil")
-                        .foregroundColor(.cyan)
+  
+            VStack {
+                Toggle(isOn: negatedEditBinding) {
+                    HStack {
+                        Text(Texts.edit)
+                            .foregroundColor(.cyan)
+                        Image(systemName: "square.and.pencil")
+                            .foregroundColor(.cyan)
+                    }
                 }
+                .toggleStyle(SwitchToggleStyle())
+                .padding()
             }
         }
         .font(.headline)
