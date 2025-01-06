@@ -4,7 +4,7 @@ struct ProfileSummaryCard: View {
     @Binding var isShowingProfile: Bool
     @Binding var loggedInUser: User?
     @State var isSignoutLoading: Bool = false
-    @State var isEditDisabled: Bool = true
+    @Binding var isEditDisabled: Bool
     
     private func handleSignout() {
         isSignoutLoading = true
@@ -94,6 +94,7 @@ struct ProfileSummaryCard: View {
 #Preview {
     @State var loggedInUser: User? = nil
     @State var isShowingProfile: Bool = false
-
-    return ProfileSummaryCard(isShowingProfile: $isShowingProfile, loggedInUser: $loggedInUser)
+    @State var isEditDisabled: Bool = true
+    
+    return ProfileSummaryCard(isShowingProfile: $isShowingProfile, loggedInUser: $loggedInUser, isEditDisabled: $isEditDisabled)
 }

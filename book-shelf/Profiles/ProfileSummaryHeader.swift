@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ProfileSummaryHeader: View {
     @Binding var loggedInUser: User?
+    @Binding var isEditDisabled: Bool
     
     var body: some View {
         HStack {
@@ -12,8 +13,7 @@ struct ProfileSummaryHeader: View {
             Spacer()
             
             Button(action: {
-                // TODO: Implement edit logic
-                print("Edit button tapped")
+                isEditDisabled.toggle()
             }) {
                 HStack {
                     Text(Texts.edit)
@@ -39,6 +39,7 @@ struct ProfileSummaryHeader: View {
 
 #Preview {
     @State var loggedInUser: User? = nil
+    @State var isEditProfileDisabled: Bool = true
     
-    return ProfileSummaryHeader(loggedInUser: $loggedInUser)
+    return ProfileSummaryHeader(loggedInUser: $loggedInUser, isEditDisabled: $isEditProfileDisabled)
 }
