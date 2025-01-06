@@ -128,7 +128,6 @@ struct ProfileSummaryCard: View {
                     }
                 }
             }
-
         }
     }
     
