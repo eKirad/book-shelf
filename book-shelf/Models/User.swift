@@ -2,9 +2,9 @@ import Foundation
 
 struct User {
     let id: UUID
-    var username: String
-    let firstName: String
-    let lastName: String
-    let email: String
+    let username: String
+    var firstName: String
+    var lastName: String
+    var email: String
     var areNotificationsActive: Bool
 }
