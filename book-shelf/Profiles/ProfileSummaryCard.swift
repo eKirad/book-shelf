@@ -3,9 +3,9 @@ import SwiftUI
 struct ProfileSummaryCard: View {
     @Binding var isShowingProfile: Bool
     @Binding var loggedInUser: User?
-    @State var isSignoutLoading: Bool = false
     @Binding var isEditDisabled: Bool
-    
+    @State var isSignoutLoading: Bool = false
+        
     private func handleSignout() {
         isSignoutLoading = true
         // TODO: Mock API call
