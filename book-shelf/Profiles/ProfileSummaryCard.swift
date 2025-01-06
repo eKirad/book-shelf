@@ -61,7 +61,7 @@ struct ProfileSummaryCard: View {
         }
     }
     
-    var body: some View {
+    var profileForm: some View {
         NavigationView {
             if let user = loggedInUser {
                 Form {
@@ -130,7 +130,10 @@ struct ProfileSummaryCard: View {
             }
 
         }
-            
+    }
+    
+    var body: some View {
+        profileForm
         settingsView
     }
 }
