@@ -23,17 +23,53 @@ struct ProfileSummaryCard: View {
             if let user = loggedInUser {
                 Form {
                     Section(header: Text("User Information")) {
-                        TextField("Username", text: Binding(
-                            get: { user.username },
-                            set: { loggedInUser?.username = $0 }
-                        ))
-                        .cornerRadius(8)
-                        .foregroundColor(isEditDisabled ? .gray : .primary)
-                        .disabled(isEditDisabled)
-//                        TextField("Email", text: Binding(
-//                            get: { user.email },
-//                            set: { loggedInUser?.email = $0 }
-//                        ))
+                        HStack() {
+                            LabeledContent("\(Labels.username):") {
+                                TextField(Texts.username, text: Binding(
+                                get: { user.username },
+                                set: { loggedInUser?.username = $0 }
+                            ))
+                            .cornerRadius(8)
+                            .foregroundColor(isEditDisabled ? .gray : .primary)
+                            .disabled(isEditDisabled)
+                            }
+                        }
+                        
+                        HStack {
+                            LabeledContent("\(Labels.firstName):") {
+                            TextField("First name", text: Binding(
+                                get: { user.firstName},
+                                set: { loggedInUser?.firstName = $0 }
+                            ))
+                            .cornerRadius(8)
+                            .foregroundColor(isEditDisabled ? .gray : .primary)
+                            .disabled(isEditDisabled)
+                            }
+                        }
+                        
+                        HStack {
+                            LabeledContent("\(Labels.lastName):") {
+                                TextField("Last name", text: Binding(
+                                    get: { user.lastName},
+                                    set: { loggedInUser?.lastName = $0 }
+                                ))
+                                .cornerRadius(8)
+                                .foregroundColor(isEditDisabled ? .gray : .primary)
+                                .disabled(isEditDisabled)
+                            }
+                        }
+                      
+                        HStack {
+                            LabeledContent("\(Labels.email):") {
+                            TextField("Email", text: Binding(
+                                get: { user.email },
+                                set: { loggedInUser?.email = $0 }
+                            ))
+                            .cornerRadius(8)
+                            .foregroundColor(isEditDisabled ? .gray : .primary)
+                            .disabled(isEditDisabled)
+                            }
+                        }
                     }
                 }
             } 
