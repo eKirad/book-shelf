@@ -4,7 +4,6 @@ struct ProfileSummaryHeader: View {
     @Binding var loggedInUser: User?
     @Binding var isEditDisabled: Bool
     
-    
     private var negatedEditBinding: Binding<Bool> {
         Binding(
             get: { !isEditDisabled },
