@@ -65,7 +65,7 @@ struct ProfileSummaryCard: View {
         NavigationView {
             if let user = loggedInUser {
                 Form {
-                    Section(header: Text("User Information")) {
+                    Section(header: Text(Texts.userInformation)) {
                         HStack() {
                             Image(systemName: "person.fill")
                                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
@@ -86,10 +86,10 @@ struct ProfileSummaryCard: View {
                                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                                 .foregroundColor(.gray)
                             LabeledContent("\(Labels.firstName):") {
-                            TextField("First name", text: Binding(
-                                get: { user.firstName},
-                                set: { loggedInUser?.firstName = $0 }
-                            ))
+                                TextField(Texts.firstName, text: Binding(
+                                    get: { user.firstName},
+                                    set: { loggedInUser?.firstName = $0 }
+                                ))
                             .cornerRadius(8)
                             .foregroundColor(isEditDisabled ? .gray : .primary)
                             .disabled(isEditDisabled)
@@ -101,7 +101,7 @@ struct ProfileSummaryCard: View {
                                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                                 .foregroundColor(.gray)
                             LabeledContent("\(Labels.lastName):") {
-                                TextField("Last name", text: Binding(
+                                TextField(Texts.lastName, text: Binding(
                                     get: { user.lastName},
                                     set: { loggedInUser?.lastName = $0 }
                                 ))
@@ -116,9 +116,9 @@ struct ProfileSummaryCard: View {
                                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                                 .foregroundColor(.gray)
                             LabeledContent("\(Labels.email):") {
-                            TextField("Email", text: Binding(
-                                get: { user.email },
-                                set: { loggedInUser?.email = $0 }
+                                TextField(Texts.email, text: Binding(
+                                    get: { user.email },
+                                    set: { loggedInUser?.email = $0 }
                             ))
                             .cornerRadius(8)
                             .foregroundColor(isEditDisabled ? .gray : .primary)
