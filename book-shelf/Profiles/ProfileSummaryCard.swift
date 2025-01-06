@@ -27,6 +27,8 @@ struct ProfileSummaryCard: View {
                             get: { user.username },
                             set: { loggedInUser?.username = $0 }
                         ))
+                        .cornerRadius(8)
+                        .foregroundColor(isEditDisabled ? .gray : .primary)
                         .disabled(isEditDisabled)
 //                        TextField("Email", text: Binding(
 //                            get: { user.email },
