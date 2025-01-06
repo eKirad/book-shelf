@@ -2,25 +2,34 @@ import SwiftUI
 
 struct ProfileSummaryHeader: View {
     @Binding var loggedInUser: User?
+    @Binding var isEditDisabled: Bool
+    
+    private var negatedEditBinding: Binding<Bool> {
+        Binding(
+            get: { !isEditDisabled },
+            set: { isEditDisabled = !$0 }
+        )
+    }
     
     var body: some View {
         HStack {
             defaultProfileImage()
-            Text(loggedInUser?.username ?? "n/A")
+            Text(loggedInUser?.username ?? Texts.nA)
                 .bold()
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
             Spacer()
-            
-            Button(action: {
-                // TODO: Implement edit logic
-                print("Edit button tapped")
-            }) {
-                HStack {
-                    Text(Texts.edit)
-                        .foregroundColor(.cyan)
-                    Image(systemName: "square.and.pencil")
-                        .foregroundColor(.cyan)
+  
+            VStack {
+                Toggle(isOn: negatedEditBinding) {
+                    HStack {
+                        Text(Texts.edit)
+                            .foregroundColor(.cyan)
+                        Image(systemName: "square.and.pencil")
+                            .foregroundColor(.cyan)
+                    }
                 }
+                .toggleStyle(SwitchToggleStyle())
+                .padding()
             }
         }
         .font(.headline)
@@ -39,6 +48,7 @@ struct ProfileSummaryHeader: View {
 
 #Preview {
     @State var loggedInUser: User? = nil
+    @State var isEditProfileDisabled: Bool = true
     
-    return ProfileSummaryHeader(loggedInUser: $loggedInUser)
+    return ProfileSummaryHeader(loggedInUser: $loggedInUser, isEditDisabled: $isEditProfileDisabled)
 }
