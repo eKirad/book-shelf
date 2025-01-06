@@ -4,6 +4,7 @@ struct ProfileSummaryCard: View {
     @Binding var isShowingProfile: Bool
     @Binding var loggedInUser: User?
     @State var isSignoutLoading: Bool = false
+    @State var isEditDisabled: Bool = true
     
     private func handleSignout() {
         isSignoutLoading = true
@@ -15,60 +16,78 @@ struct ProfileSummaryCard: View {
                 isShowingProfile = false
             }
         }
-    }   
+    }
     
     var body: some View {
-        HStack {
-            Image(systemName: "person.fill")
-                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                .foregroundColor(.gray)
-            Text("\(Texts.fullName): \(loggedInUser?.firstName ?? Texts.nA) \(loggedInUser?.lastName ?? Texts.nA)")
-        }
-       
-         HStack {
-            Image(systemName: "envelope.fill")
-                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                .foregroundColor(.gray)
-             Text("\(loggedInUser?.email ?? Texts.nA)")
-        }
-       
-         HStack {
-            Image(systemName: "bell.fill")
-                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                .foregroundColor(.gray)
-             Toggle(isOn: Binding(
-                get: { loggedInUser?.areNotificationsActive ?? false },
-                set: { notificationsToggleValue in
-                    if loggedInUser != nil {
-                        loggedInUser?.areNotificationsActive = notificationsToggleValue
+        NavigationView {
+            if let user = loggedInUser {
+                Form {
+                    Section(header: Text("User Information")) {
+                        TextField("Username", text: Binding(
+                            get: { user.username },
+                            set: { loggedInUser?.username = $0 }
+                        ))
+                        .disabled(isEditDisabled)
+//                        TextField("Email", text: Binding(
+//                            get: { user.email },
+//                            set: { loggedInUser?.email = $0 }
+//                        ))
                     }
-                 }
-             )) {
-                 Text("\(Texts.notifications): \(loggedInUser?.areNotificationsActive ?? false ? "\(Texts.notificationsOn)": "\(Texts.notificationsOff)")")
-             }
-             .disabled(loggedInUser == nil)
-             .padding(.horizontal)
-         }
-    
-        HStack {
-            Button(action: {
-                handleSignout()
-            }) {
-                isSignoutLoading
-                  ? AnyView(ProgressView()
-                        .font(.title)
-                        .progressViewStyle(CircularProgressViewStyle())
-                  )
-                  : AnyView(HStack {
-                      Image(systemName: "arrow.right.circle.fill")
-                          .font(.title)
-                          .foregroundColor(.gray)
-                  })
-                
-                Text(Texts.signOut)
-                    .foregroundColor(.black)
-            }
-       }
+                }
+            } 
+        }
+        //        HStack {
+        //            Image(systemName: "person.fill")
+        //                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+        //                .foregroundColor(.gray)
+        //            Text("\(Texts.fullName): \(loggedInUser?.firstName ?? Texts.nA) \(loggedInUser?.lastName ?? Texts.nA)")
+        //        }
+        //
+        //         HStack {
+        //            Image(systemName: "envelope.fill")
+        //                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+        //                .foregroundColor(.gray)
+        //             Text("\(loggedInUser?.email ?? Texts.nA)")
+        //        }
+        //
+        //         HStack {
+        //            Image(systemName: "bell.fill")
+        //                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+        //                .foregroundColor(.gray)
+        //             Toggle(isOn: Binding(
+        //                get: { loggedInUser?.areNotificationsActive ?? false },
+        //                set: { notificationsToggleValue in
+        //                    if loggedInUser != nil {
+        //                        loggedInUser?.areNotificationsActive = notificationsToggleValue
+        //                    }
+        //                 }
+        //             )) {
+        //                 Text("\(Texts.notifications): \(loggedInUser?.areNotificationsActive ?? false ? "\(Texts.notificationsOn)": "\(Texts.notificationsOff)")")
+        //             }
+        //             .disabled(loggedInUser == nil)
+        //             .padding(.horizontal)
+        //         }
+        //
+        //        HStack {
+        //            Button(action: {
+        //                handleSignout()
+        //            }) {
+        //                isSignoutLoading
+        //                  ? AnyView(ProgressView()
+        //                        .font(.title)
+        //                        .progressViewStyle(CircularProgressViewStyle())
+        //                  )
+        //                  : AnyView(HStack {
+        //                      Image(systemName: "arrow.right.circle.fill")
+        //                          .font(.title)
+        //                          .foregroundColor(.gray)
+        //                  })
+        //
+        //                Text(Texts.signOut)
+        //                    .foregroundColor(.black)
+        //            }
+        //       }
+        //    }
     }
 }
 
