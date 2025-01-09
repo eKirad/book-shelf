@@ -15,7 +15,6 @@ struct MainView: View {
                     }
                     .tag(MainTab.splashScreen)           
             }
-            
             BookHome(loggedInUser: $loggedInUser)
                 .tabItem { Label(Labels.myBooks, systemImage: "book") }
                 .tag(MainTab.myBooks)
