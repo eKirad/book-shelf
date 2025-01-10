@@ -21,9 +21,15 @@ struct ProfileSummaryCard: View {
     var settingsView: some View {
         VStack {
             HStack {
-               Image(systemName: "bell.fill")
-                   .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                   .foregroundColor(.gray)
+                HStack (spacing: 8) {
+                    Image(systemName: "bell.fill")
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(.gray)
+                        .frame(width: 20, height: 20)
+                     Text((Texts.notifications))
+                }
+                .padding()
+                Spacer()
                 Toggle(isOn: Binding(
                    get: { loggedInUser?.areNotificationsActive ?? false },
                    set: { notificationsToggleValue in
@@ -32,13 +38,13 @@ struct ProfileSummaryCard: View {
                        }
                     }
                 )) {
-                    Text("\(Texts.notifications): \(loggedInUser?.areNotificationsActive ?? false ? "\(Texts.notificationsOn)": "\(Texts.notificationsOff)")")
+
                 }
                 .disabled(loggedInUser == nil)
                 .padding(.horizontal)
             }
             
-            HStack {
+            HStack (spacing: 0) {
                 Button(action: {
                     handleSignout()
                 }) {
