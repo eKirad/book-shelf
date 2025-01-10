@@ -44,7 +44,7 @@ struct ProfileSummaryCard: View {
                 .padding(.horizontal)
             }
             
-            HStack (spacing: 0) {
+            HStack () {
                 Button(action: {
                     handleSignout()
                 }) {
@@ -58,12 +58,12 @@ struct ProfileSummaryCard: View {
                               .font(.title)
                               .foregroundColor(.gray)
                       })
-
                     Text(Texts.signOut)
                         .foregroundColor(.black)
-                        .padding(.horizontal)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
            }
+            .padding(.horizontal)
         }
     }
     
