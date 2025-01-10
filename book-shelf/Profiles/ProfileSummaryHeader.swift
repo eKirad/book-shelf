@@ -18,19 +18,18 @@ struct ProfileSummaryHeader: View {
                 .bold()
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
             Spacer()
-  
-            VStack {
+            
+            HStack (spacing: 8) {
                 Toggle(isOn: negatedEditBinding) {
-                    HStack {
+                    HStack () {
                         Text(Texts.edit)
-                            .foregroundColor(.cyan)
-                        Image(systemName: "square.and.pencil")
-                            .foregroundColor(.cyan)
+                            .foregroundColor(.gray)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
                     }
                 }
                 .toggleStyle(SwitchToggleStyle())
-                .padding()
             }
+            .padding(.trailing)
         }
         .font(.headline)
     }
